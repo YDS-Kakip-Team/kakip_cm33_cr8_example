@@ -2879,7 +2879,7 @@ FSP Configuration
       
     Instance "g_uart UART (r_sci_b_uart)"
       General: Name: g_uart
-      General: Channel: 0
+      General: Channel: 5
       General: Data Bits: 8bits
       General: Parity: None
       General: Stop Bits: 1bit
