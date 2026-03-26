@@ -15,7 +15,7 @@
 #define MAX_CYCLE       (2000u)        /* Maximum cycle */
 
 /* Pin of LED */
-#define LED_0   (BSP_IO_PORT_08_PIN_00)
+#define LED_0   (BSP_IO_PORT_01_PIN_00)
 
 /* Function declaration */
 fsp_err_t gtm_initialize(void);
