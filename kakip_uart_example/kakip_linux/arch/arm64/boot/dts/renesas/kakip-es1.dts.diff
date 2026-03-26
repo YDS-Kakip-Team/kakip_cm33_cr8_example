@@ -1,0 +1,13 @@
+diff --git a/arch/arm64/boot/dts/renesas/kakip-es1.dts b/arch/arm64/boot/dts/renesas/kakip-es1.dts
+index d62fa4fe2..d30390706 100644
+--- a/arch/arm64/boot/dts/renesas/kakip-es1.dts
++++ b/arch/arm64/boot/dts/renesas/kakip-es1.dts
+@@ -306,7 +306,7 @@ &scif0 {
+ &sci5 {
+ 	pinctrl-0 = <&sci5_pins>;
+ 	pinctrl-names = "default";
+-	status = "okay";
++	status = "disabled";
+ };
+ 
+ &sdhi0 {

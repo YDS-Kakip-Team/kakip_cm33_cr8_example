@@ -1,0 +1,13 @@
+diff --git a/drivers/clk/renesas/r9a09g057-cpg.c b/drivers/clk/renesas/r9a09g057-cpg.c
+index abcef788f..2e8b74d5f 100644
+--- a/drivers/clk/renesas/r9a09g057-cpg.c
++++ b/drivers/clk/renesas/r9a09g057-cpg.c
+@@ -936,6 +936,8 @@ static const unsigned int r9a09g057_crit_mod_clks[] __initconst = {
+ 	MOD_CLK_BASE + R9A09G057_RCPU_OSTM1_PCLK,
+ 	MOD_CLK_BASE + R9A09G057_RCPU_OSTM2_PCLK,
+ 	MOD_CLK_BASE + R9A09G057_RCPU_OSTM3_PCLK,
++	MOD_CLK_BASE + R9A09G057_RSCI5_PCLK,
++	MOD_CLK_BASE + R9A09G057_RSCI5_TCLK,
+ };
+ 
+ static struct clk_mon r9a09g057_clk_mon[] = {
