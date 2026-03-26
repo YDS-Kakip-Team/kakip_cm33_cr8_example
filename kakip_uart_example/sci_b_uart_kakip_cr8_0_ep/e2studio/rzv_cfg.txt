@@ -430,8 +430,8 @@ FSP Configuration
       P03 AR9 - - - - Disabled - - "DMAC0: DREQ0; DMAC0: TEND0; IRQ: IRQ3; PDM0: PDMCLK01; POEG3: GTETRGD; POEG7: GTETRGH" - None - - 
       P04 AN9 - - - - Disabled - - "ADC: ADTRG; CMTW2: TIC20; CMTW2: TOC20; IRQ: IRQ8; PDM0: PDMDAT02; POEG4: GTETRGE; RSPI0: SSLA0; RSPI1: SSLB2; SPDIF1: SPDIF1_OUT; SSIU3: SSI3_SDATA; xSPI: XSPI0_WP0N" - None - - 
       P05 AU10 - - - - Disabled - - "ADC: ADTRG; CMTW2: TIC21; CMTW2: TOC21; CMTW3: TIC31; CMTW3: TOC31; DMAC0: DACK0; IRQ: IRQ9; PDM0: PDMCLK02; POEG5: GTETRGF; RSPI0: SSLA1; RSPI2: SSLC2; SPDIF1: SPDIF1_IN; SSIU4: SSI4_SCK; xSPI: XSPI0_ECS1N" - None - - 
-      P06 AP10 RIIC8_SDA8 - - - - - - "IRQ: IRQ12; RIIC8: SDA8" - IO - - 
-      P07 AR10 RIIC8_SCL8 - - - - - - "IRQ: IRQ13; RIIC8: SCL8" - IO - - 
+      P06 AP10 - - - - Disabled - - "IRQ: IRQ12; RIIC8: SDA8" - None - - 
+      P07 AR10 - - - - Disabled - - "IRQ: IRQ13; RIIC8: SCL8" - None - - 
       P10 AP11 - - - - Disabled - - "ADG: AUDIO_CLKB; CMTW0: TIC00; CMTW0: TOC00; DMAC0: DACK0; IRQ: IRQ4; PDM1: PDMDAT10; POEG0: GTETRGA; xSPI: XSPI0_CS1N" - None - - 
       P11 AU9 - - - - Disabled - - "ADG: AUDIO_CLKC; CMTW0: TIC01; CMTW0: TOC01; IRQ: IRQ5; PDM1: PDMCLK10; POEG1: GTETRGB; xSPI: XSPI0_RESET1N" - None - - 
       P12 AR11 - - - - Disabled - - "CMTW1: TIC10; CMTW1: TOC10; IRQ: IRQ6; PDM1: PDMDAT11; POEG2: GTETRGC; SPDIF0: SPDIF0_OUT; SSIU3: SSI3_SCK; xSPI: XSPI0_RSTO1N" - None - - 
@@ -1423,20 +1423,20 @@ FSP Configuration
       WDTUDFCA AP6 - - - - - - - - - None - - 
       WDTUDFCM AR6 - - - - - - - - - None - - 
       XSPI0_CKN AR13 - - - - - - - - - None - - 
-      XSPI0_CKP AP13 xSPI_XSPI0_CKP - - - - - - - - IO - - 
-      XSPI0_CS0N AT14 xSPI_XSPI0_CS0N - - - - - - - - O - - 
+      XSPI0_CKP AP13 - - - - - - - - - None - - 
+      XSPI0_CS0N AT14 - - - - - - - - - None - - 
       XSPI0_DS AU14 - - - - - - - - - None - - 
       XSPI0_ECS0N AN16 - - - - - - - - - None - - 
       XSPI0_INT0N AM16 - - - - - - - - - None - - 
-      XSPI0_IO0 AP14 xSPI_XSPI0_IO0 - - - - - - - - IO - - 
-      XSPI0_IO1 AR14 xSPI_XSPI0_IO1 - - - - - - - - IO - - 
-      XSPI0_IO2 AU15 xSPI_XSPI0_IO2 - - - - - - - - IO - - 
-      XSPI0_IO3 AT16 xSPI_XSPI0_IO3 - - - - - - - - IO - - 
+      XSPI0_IO0 AP14 - - - - - - - - - None - - 
+      XSPI0_IO1 AR14 - - - - - - - - - None - - 
+      XSPI0_IO2 AU15 - - - - - - - - - None - - 
+      XSPI0_IO3 AT16 - - - - - - - - - None - - 
       XSPI0_IO4 AR16 - - - - - - - - - None - - 
       XSPI0_IO5 AR15 - - - - - - - - - None - - 
       XSPI0_IO6 AP15 - - - - - - - - - None - - 
       XSPI0_IO7 AP16 - - - - - - - - - None - - 
-      XSPI0_RESET0N AN15 xSPI_XSPI0_RESET0N - - - - - - - - O - - 
+      XSPI0_RESET0N AN15 - - - - - - - - - None - - 
       XSPI0_RSTO0N AN14 - - - - - - - - - None - - 
     R9A09G057H44GBG.pincfg -> 
       ADAVDD18 AK8 "Power, System_ADAVDD18" - - - - - - - - IO "Read only" - 
@@ -1791,8 +1791,8 @@ FSP Configuration
       P03 AR9 - - - - Disabled - - "DMAC0: DREQ0; DMAC0: TEND0; IRQ: IRQ3; PDM0: PDMCLK01; POEG3: GTETRGD; POEG7: GTETRGH" - None - - 
       P04 AN9 - - - - Disabled - - "ADC: ADTRG; CMTW2: TIC20; CMTW2: TOC20; IRQ: IRQ8; PDM0: PDMDAT02; POEG4: GTETRGE; RSPI0: SSLA0; RSPI1: SSLB2; SPDIF1: SPDIF1_OUT; SSIU3: SSI3_SDATA; xSPI: XSPI0_WP0N" - None - - 
       P05 AU10 - - - - Disabled - - "ADC: ADTRG; CMTW2: TIC21; CMTW2: TOC21; CMTW3: TIC31; CMTW3: TOC31; DMAC0: DACK0; IRQ: IRQ9; PDM0: PDMCLK02; POEG5: GTETRGF; RSPI0: SSLA1; RSPI2: SSLC2; SPDIF1: SPDIF1_IN; SSIU4: SSI4_SCK; xSPI: XSPI0_ECS1N" - None - - 
-      P06 AP10 RIIC8_SDA8 - - - - - - "IRQ: IRQ12; RIIC8: SDA8" - IO - - 
-      P07 AR10 RIIC8_SCL8 - - - - - - "IRQ: IRQ13; RIIC8: SCL8" - IO - - 
+      P06 AP10 - - - - Disabled - - "IRQ: IRQ12; RIIC8: SDA8" - None - - 
+      P07 AR10 - - - - Disabled - - "IRQ: IRQ13; RIIC8: SCL8" - None - - 
       P10 AP11 - - - - Disabled - - "ADG: AUDIO_CLKB; CMTW0: TIC00; CMTW0: TOC00; DMAC0: DACK0; IRQ: IRQ4; PDM1: PDMDAT10; POEG0: GTETRGA; xSPI: XSPI0_CS1N" - None - - 
       P11 AU9 - - - - Disabled - - "ADG: AUDIO_CLKC; CMTW0: TIC01; CMTW0: TOC01; IRQ: IRQ5; PDM1: PDMCLK10; POEG1: GTETRGB; xSPI: XSPI0_RESET1N" - None - - 
       P12 AR11 - - - - Disabled - - "CMTW1: TIC10; CMTW1: TOC10; IRQ: IRQ6; PDM1: PDMDAT11; POEG2: GTETRGC; SPDIF0: SPDIF0_OUT; SSIU3: SSI3_SCK; xSPI: XSPI0_RSTO1N" - None - - 
@@ -2784,25 +2784,27 @@ FSP Configuration
       WDTUDFCA AP6 - - - - - - - - - None - - 
       WDTUDFCM AR6 - - - - - - - - - None - - 
       XSPI0_CKN AR13 - - - - - - - - - None - - 
-      XSPI0_CKP AP13 xSPI_XSPI0_CKP - - - - - - - - IO - - 
-      XSPI0_CS0N AT14 xSPI_XSPI0_CS0N - - - - - - - - O - - 
+      XSPI0_CKP AP13 - - - - - - - - - None - - 
+      XSPI0_CS0N AT14 - - - - - - - - - None - - 
       XSPI0_DS AU14 - - - - - - - - - None - - 
       XSPI0_ECS0N AN16 - - - - - - - - - None - - 
       XSPI0_INT0N AM16 - - - - - - - - - None - - 
-      XSPI0_IO0 AP14 xSPI_XSPI0_IO0 - - - - - - - - IO - - 
-      XSPI0_IO1 AR14 xSPI_XSPI0_IO1 - - - - - - - - IO - - 
-      XSPI0_IO2 AU15 xSPI_XSPI0_IO2 - - - - - - - - IO - - 
-      XSPI0_IO3 AT16 xSPI_XSPI0_IO3 - - - - - - - - IO - - 
+      XSPI0_IO0 AP14 - - - - - - - - - None - - 
+      XSPI0_IO1 AR14 - - - - - - - - - None - - 
+      XSPI0_IO2 AU15 - - - - - - - - - None - - 
+      XSPI0_IO3 AT16 - - - - - - - - - None - - 
       XSPI0_IO4 AR16 - - - - - - - - - None - - 
       XSPI0_IO5 AR15 - - - - - - - - - None - - 
       XSPI0_IO6 AP15 - - - - - - - - - None - - 
       XSPI0_IO7 AP16 - - - - - - - - - None - - 
-      XSPI0_RESET0N AN15 xSPI_XSPI0_RESET0N - - - - - - - - O - - 
+      XSPI0_RESET0N AN15 - - - - - - - - - None - - 
       XSPI0_RSTO0N AN14 - - - - - - - - - None - - 
     
   User Events
     
   User Event Links
+    
+  Linker Section Mappings
     
   Module "I/O Port (r_ioport)"
     Parameter Checking: Default (BSP)
