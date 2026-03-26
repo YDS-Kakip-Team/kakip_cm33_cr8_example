@@ -351,6 +351,8 @@
   </raModuleConfiguration>
   <raPinConfiguration>
     <pincfg active="true" name="RZV2H-EVK.pincfg" selected="true" symbol="g_bsp_pin_cfg">
+      <configSetting altId="p10.output.toinput.low" configurationId="p10"/>
+      <configSetting altId="p10.gpio_mode.gpio_mode_out.toinput.low" configurationId="p10.gpio_mode"/>
       <configSetting altId="p50.rsci0.txd0_mosi0_sda0" configurationId="p50"/>
       <configSetting altId="p50.gpio_mode.gpio_mode_peripheral" configurationId="p50.gpio_mode"/>
       <configSetting altId="p51.rsci0.rxd0_miso0_scl0" configurationId="p51"/>
