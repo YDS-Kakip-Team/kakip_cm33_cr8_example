@@ -223,8 +223,6 @@
       <configSetting altId="p50.gpio_mode.gpio_mode_peripheral" configurationId="p50.gpio_mode"/>
       <configSetting altId="p51.rsci0.rxd0_miso0_scl0" configurationId="p51"/>
       <configSetting altId="p51.gpio_mode.gpio_mode_peripheral" configurationId="p51.gpio_mode"/>
-      <configSetting altId="p80.output.low" configurationId="p80"/>
-      <configSetting altId="p80.gpio_mode.gpio_mode_out.low" configurationId="p80.gpio_mode"/>
       <configSetting altId="riic8.mode.custom.free" configurationId="riic8.mode"/>
       <configSetting altId="p72.rsci5.txd5_mosi5_sda5" configurationId="p72"/>
       <configSetting altId="p72.gpio_mode.gpio_mode_peripheral" configurationId="p72.gpio_mode"/>
