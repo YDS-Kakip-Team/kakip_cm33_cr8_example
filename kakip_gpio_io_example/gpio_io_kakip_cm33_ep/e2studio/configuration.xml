@@ -444,6 +444,11 @@
       <configSetting altId="p74.irq.irq8" configurationId="p74"/>
       <configSetting altId="p74.gpio_mode.gpio_mode_peripheral" configurationId="p74.gpio_mode"/>
       <configSetting altId="p74.smt.smt.enable" configurationId="p74.smt"/>
+      <configSetting altId="p84.output.toinput.low" configurationId="p84"/>
+      <configSetting altId="p84.gpio_speed.gpio_speed_x1" configurationId="p84.gpio_drivecapacity"/>
+      <configSetting altId="p84.gpio_mode.gpio_mode_out.toinput.low" configurationId="p84.gpio_mode"/>
+      <configSetting altId="p85.output.toinput.low" configurationId="p85"/>
+      <configSetting altId="p85.gpio_mode.gpio_mode_out.toinput.low" configurationId="p85.gpio_mode"/>
       <configSetting altId="pa7.rspi2.sslc0" configurationId="pa7"/>
       <configSetting altId="pa7.gpio_speed.gpio_speed_x6" configurationId="pa7.gpio_drivecapacity"/>
       <configSetting altId="pa7.gpio_mode.gpio_mode_peripheral" configurationId="pa7.gpio_mode"/>
