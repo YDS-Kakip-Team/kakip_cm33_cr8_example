@@ -234,6 +234,10 @@
       <description>Evaluation Kit RZ/V2H Support Files (RZ/V2H)</description>
       <originalPack>Renesas.RZV_board_rzv2h_evk.3.0.0.pack</originalPack>
     </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_sci_b_uart" variant="" vendor="Renesas" version="3.0.0">
+      <description>SCI UART</description>
+      <originalPack>Renesas.RZV.3.0.0.pack</originalPack>
+    </component>
   </raComponentSelection>
   <raElcConfiguration/>
   <raIcuConfiguration/>
@@ -343,15 +347,49 @@
       <property id="module.driver.xspi_qspi.pre_init" value="xspi_pre_init"/>
       <property id="module.driver.xspi_qspi.post_init" value="xspi_post_init"/>
     </module>
+    <module id="module.driver.uart_on_sci_b_uart.485536207">
+      <property id="module.driver.uart.name" value="g_uart"/>
+      <property id="module.driver.uart.channel" value="5"/>
+      <property id="module.driver.uart.data_bits" value="module.driver.uart.data_bits.data_bits_8"/>
+      <property id="module.driver.uart.parity" value="module.driver.uart.parity.parity_off"/>
+      <property id="module.driver.uart.stop_bits" value="module.driver.uart.stop_bits.stop_bits_1"/>
+      <property id="module.driver.uart.baud" value="115200"/>
+      <property id="module.driver.uart.baudrate_modulation" value="module.driver.uart.baudrate_modulation.disabled"/>
+      <property id="module.driver.uart.baudrate_max_err" value="5"/>
+      <property id="module.driver.uart.flow_control" value="module.driver.uart.flow_control.rts"/>
+      <property id="module.driver.uart.pin_control_port" value="module.driver.uart.pin_control_port.PORT_DISABLE"/>
+      <property id="module.driver.uart.pin_control_pin" value="module.driver.uart.pin_control_pin.PIN_DISABLE"/>
+      <property id="module.driver.uart.clk_src" value="module.driver.uart.clk_src.int_clk"/>
+      <property id="module.driver.uart.rx_edge_start" value="module.driver.uart.rx_edge_start.falling_edge"/>
+      <property id="module.driver.uart.noisecancel_en" value="module.driver.uart.noisecancel_en.disabled"/>
+      <property id="module.driver.uart.rx_fifo_trigger" value="module.driver.uart.rx_fifo_trigger.max"/>
+      <property id="module.driver.uart.rs485.de_enable" value="module.driver.uart.rs485.de_enable.disabled"/>
+      <property id="module.driver.uart.rs485.de_polarity" value="module.driver.uart.rs485.de_polarity.high"/>
+      <property id="module.driver.uart.rs485.de_assertion_time" value="1"/>
+      <property id="module.driver.uart.rs485.de_negation_time" value="1"/>
+      <property id="module.driver.uart.half_data.enable" value="module.driver.uart.half_data.enable.disabled"/>
+      <property id="module.driver.uart.callback" value="g_uart_callback"/>
+      <property id="module.driver.uart.rxi_ipl" value="12"/>
+      <property id="module.driver.uart.txi_ipl" value="12"/>
+      <property id="module.driver.uart.tei_ipl" value="12"/>
+      <property id="module.driver.uart.eri_ipl" value="12"/>
+    </module>
     <context id="_hal.0">
       <stack module="module.driver.ioport_on_ioport.0"/>
       <stack module="module.driver.i2c_on_iic_master.0"/>
       <stack module="module.driver.qspi_on_xspi_qspi.0"/>
+      <stack module="module.driver.uart_on_sci_b_uart.485536207"/>
     </context>
     <config id="config.driver.riic_master">
       <property id="config.driver.riic_master.param_checking_enable" value="config.driver.riic_master.param_checking_enable.bsp"/>
       <property id="config.driver.riic_master.dmac_enable" value="config.driver.riic_master.dmac_enable.disabled"/>
       <property id="config.driver.riic_master.addr_mode_10_bit_enable" value="config.driver.riic_master.addr_mode_10_bit_enable.disabled"/>
+    </config>
+    <config id="config.driver.sci_b_uart">
+      <property id="config.driver.sci_b_uart.param_checking_enable" value="config.driver.sci_b_uart.param_checking_enable.bsp"/>
+      <property id="config.driver.sci_b_uart.fifo_support" value="config.driver.sci_b_uart.fifo_support.enabled"/>
+      <property id="config.driver.sci_b_uart.dmac_support" value="config.driver.sci_b_uart.dmac_support.disabled"/>
+      <property id="config.driver.sci_b_uart.flow_control" value="config.driver.sci_b_uart.flow_control.disabled"/>
     </config>
     <config id="config.driver.ioport">
       <property id="config.driver.ioport.checking" value="config.driver.ioport.checking.system"/>
@@ -365,7 +403,6 @@
     <pincfg active="true" name="RZV2H-EVK.pincfg" selected="true" symbol="g_bsp_pin_cfg">
       <configSetting altId="irq.irq0.p70" configurationId="irq.irq0"/>
       <configSetting altId="irq.irq13.p57" configurationId="irq.irq13"/>
-      <configSetting altId="irq.irq4.p72" configurationId="irq.irq4"/>
       <configSetting altId="irq.irq8.p74" configurationId="irq.irq8"/>
       <configSetting altId="irq.irq9.p55" configurationId="irq.irq9"/>
       <configSetting altId="irq.mode.custom.free" configurationId="irq.mode"/>
@@ -400,9 +437,10 @@
       <configSetting altId="p70.irq.irq0" configurationId="p70"/>
       <configSetting altId="p70.gpio_mode.gpio_mode_peripheral" configurationId="p70.gpio_mode"/>
       <configSetting altId="p70.smt.smt.enable" configurationId="p70.smt"/>
-      <configSetting altId="p72.irq.irq4" configurationId="p72"/>
+      <configSetting altId="p72.rsci5.txd5_mosi5_sda5" configurationId="p72"/>
       <configSetting altId="p72.gpio_mode.gpio_mode_peripheral" configurationId="p72.gpio_mode"/>
-      <configSetting altId="p72.smt.smt.enable" configurationId="p72.smt"/>
+      <configSetting altId="p73.rsci5.rxd5_miso5_scl5" configurationId="p73"/>
+      <configSetting altId="p73.gpio_mode.gpio_mode_peripheral" configurationId="p73.gpio_mode"/>
       <configSetting altId="p74.irq.irq8" configurationId="p74"/>
       <configSetting altId="p74.gpio_mode.gpio_mode_peripheral" configurationId="p74.gpio_mode"/>
       <configSetting altId="p74.smt.smt.enable" configurationId="p74.smt"/>
@@ -429,6 +467,9 @@
       <configSetting altId="rsci0.sck0.p52" configurationId="rsci0.sck0"/>
       <configSetting altId="rsci0.ss0_cts0n_rts0n.p53" configurationId="rsci0.ss0_cts0n_rts0n"/>
       <configSetting altId="rsci0.txd0_mosi0_sda0.p50" configurationId="rsci0.txd0_mosi0_sda0"/>
+      <configSetting altId="rsci5.mode.custom.free" configurationId="rsci5.mode"/>
+      <configSetting altId="rsci5.rxd5_miso5_scl5.p73" configurationId="rsci5.rxd5_miso5_scl5"/>
+      <configSetting altId="rsci5.txd5_mosi5_sda5.p72" configurationId="rsci5.txd5_mosi5_sda5"/>
       <configSetting altId="rspi2.misoc.pb3" configurationId="rspi2.misoc"/>
       <configSetting altId="rspi2.mode.custom.free" configurationId="rspi2.mode"/>
       <configSetting altId="rspi2.mosic.pb4" configurationId="rspi2.mosic"/>
