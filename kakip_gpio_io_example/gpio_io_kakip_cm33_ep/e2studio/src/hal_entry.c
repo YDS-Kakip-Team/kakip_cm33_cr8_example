@@ -11,10 +11,18 @@
 #include "xspi_init.h"
 #include "ca55_start.h"
 #include "cr8_start.h"
+#include "console.h"
+
+/* GPIO pin definitions for 40-pin header */
+#define GPIO_OUT_HIGH   (BSP_IO_PORT_08_PIN_04)  /* P8_4 (GPIO0, CN6 pin 27) */
+#define GPIO_OUT_LOW    (BSP_IO_PORT_08_PIN_05)  /* P8_5 (GPIO1, CN6 pin 28) */
+#define GPIO_IN_1       (BSP_IO_PORT_07_PIN_04)  /* P7_4 (GPIO5, CN6 pin 29) */
+#define GPIO_IN_2       (BSP_IO_PORT_10_PIN_07)  /* PA_7 (GPIO6, CN6 pin 31) */
+
+#define POLLING_DELAY_MS  (500u)
 
 FSP_CPP_HEADER
 void R_BSP_WarmStart(bsp_warm_start_event_t event);
-
 FSP_CPP_FOOTER
 
 /*******************************************************************************************************************//**
@@ -23,11 +31,37 @@ FSP_CPP_FOOTER
  **********************************************************************************************************************/
 void hal_entry (void)
 {
-    /* TODO: add your own code here */
+    fsp_err_t err = FSP_SUCCESS;
+    bsp_io_level_t in1_level = BSP_IO_LEVEL_LOW;
+    bsp_io_level_t in2_level = BSP_IO_LEVEL_LOW;
 
-    while (1)
+    /* Initialize UART console */
+    err = console_init();
+    if (FSP_SUCCESS != err)
     {
-        ;
+        while (1) { /* UART init failed, halt */ }
+    }
+
+    console_print("\r\n--- Kakip GPIO IO Example ---\r\n");
+    console_print("Output: P8_4 (pin 27) = HIGH, P8_5 (pin 28) = LOW\r\n");
+    console_print("Input:  P7_4 (pin 29), PA_7 (pin 31)\r\n");
+    console_print("Polling input status...\r\n\r\n");
+
+    /* Set output pins */
+    R_IOPORT_PinWrite(&g_ioport_ctrl, GPIO_OUT_HIGH, BSP_IO_LEVEL_HIGH);
+    R_IOPORT_PinWrite(&g_ioport_ctrl, GPIO_OUT_LOW, BSP_IO_LEVEL_LOW);
+
+    /* Polling loop: read input pins and print status */
+    while (true)
+    {
+        R_IOPORT_PinRead(&g_ioport_ctrl, GPIO_IN_1, &in1_level);
+        R_IOPORT_PinRead(&g_ioport_ctrl, GPIO_IN_2, &in2_level);
+
+        console_print("P7_4=%s  PA_7=%s\r\n",
+                       in1_level == BSP_IO_LEVEL_HIGH ? "HIGH" : "LOW ",
+                       in2_level == BSP_IO_LEVEL_HIGH ? "HIGH" : "LOW ");
+
+        R_BSP_SoftwareDelay(POLLING_DELAY_MS, BSP_DELAY_UNITS_MILLISECONDS);
     }
 }
 

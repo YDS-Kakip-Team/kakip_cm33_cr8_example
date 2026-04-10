@@ -15,6 +15,7 @@
 
 #define CONSOLE_BUF_SIZE  (256u)
 #define CONSOLE_TIMEOUT   (UINT32_MAX)
+#define RESET_VALUE       (0u)
 
 /* Flag for user callback */
 static volatile uint8_t g_uart_event = RESET_VALUE;
