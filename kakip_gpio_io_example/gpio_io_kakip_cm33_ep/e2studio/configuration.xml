@@ -403,7 +403,6 @@
     <pincfg active="true" name="RZV2H-EVK.pincfg" selected="true" symbol="g_bsp_pin_cfg">
       <configSetting altId="irq.irq0.p70" configurationId="irq.irq0"/>
       <configSetting altId="irq.irq13.p57" configurationId="irq.irq13"/>
-      <configSetting altId="irq.irq8.p74" configurationId="irq.irq8"/>
       <configSetting altId="irq.irq9.p55" configurationId="irq.irq9"/>
       <configSetting altId="irq.mode.custom.free" configurationId="irq.mode"/>
       <configSetting altId="p06.riic8.sda8" configurationId="p06"/>
@@ -441,26 +440,15 @@
       <configSetting altId="p72.gpio_mode.gpio_mode_peripheral" configurationId="p72.gpio_mode"/>
       <configSetting altId="p73.rsci5.rxd5_miso5_scl5" configurationId="p73"/>
       <configSetting altId="p73.gpio_mode.gpio_mode_peripheral" configurationId="p73.gpio_mode"/>
-      <configSetting altId="p74.irq.irq8" configurationId="p74"/>
-      <configSetting altId="p74.gpio_mode.gpio_mode_peripheral" configurationId="p74.gpio_mode"/>
-      <configSetting altId="p74.smt.smt.enable" configurationId="p74.smt"/>
+      <configSetting altId="p74.input" configurationId="p74"/>
+      <configSetting altId="p74.gpio_mode.gpio_mode_in" configurationId="p74.gpio_mode"/>
       <configSetting altId="p84.output.toinput.low" configurationId="p84"/>
       <configSetting altId="p84.gpio_speed.gpio_speed_x1" configurationId="p84.gpio_drivecapacity"/>
       <configSetting altId="p84.gpio_mode.gpio_mode_out.toinput.low" configurationId="p84.gpio_mode"/>
       <configSetting altId="p85.output.toinput.low" configurationId="p85"/>
       <configSetting altId="p85.gpio_mode.gpio_mode_out.toinput.low" configurationId="p85.gpio_mode"/>
-      <configSetting altId="pa7.rspi2.sslc0" configurationId="pa7"/>
-      <configSetting altId="pa7.gpio_speed.gpio_speed_x6" configurationId="pa7.gpio_drivecapacity"/>
-      <configSetting altId="pa7.gpio_mode.gpio_mode_peripheral" configurationId="pa7.gpio_mode"/>
-      <configSetting altId="pb3.rspi2.misoc" configurationId="pb3"/>
-      <configSetting altId="pb3.gpio_speed.gpio_speed_x6" configurationId="pb3.gpio_drivecapacity"/>
-      <configSetting altId="pb3.gpio_mode.gpio_mode_peripheral" configurationId="pb3.gpio_mode"/>
-      <configSetting altId="pb4.rspi2.mosic" configurationId="pb4"/>
-      <configSetting altId="pb4.gpio_speed.gpio_speed_x6" configurationId="pb4.gpio_drivecapacity"/>
-      <configSetting altId="pb4.gpio_mode.gpio_mode_peripheral" configurationId="pb4.gpio_mode"/>
-      <configSetting altId="pb5.rspi2.rspckc" configurationId="pb5"/>
-      <configSetting altId="pb5.gpio_speed.gpio_speed_x6" configurationId="pb5.gpio_drivecapacity"/>
-      <configSetting altId="pb5.gpio_mode.gpio_mode_peripheral" configurationId="pb5.gpio_mode"/>
+      <configSetting altId="pa7.input" configurationId="pa7"/>
+      <configSetting altId="pa7.gpio_mode.gpio_mode_in" configurationId="pa7.gpio_mode"/>
       <configSetting altId="riic2.mode.custom.free" configurationId="riic2.mode"/>
       <configSetting altId="riic2.scl2.p21" configurationId="riic2.scl2"/>
       <configSetting altId="riic2.sda2.p20" configurationId="riic2.sda2"/>
@@ -475,11 +463,6 @@
       <configSetting altId="rsci5.mode.custom.free" configurationId="rsci5.mode"/>
       <configSetting altId="rsci5.rxd5_miso5_scl5.p73" configurationId="rsci5.rxd5_miso5_scl5"/>
       <configSetting altId="rsci5.txd5_mosi5_sda5.p72" configurationId="rsci5.txd5_mosi5_sda5"/>
-      <configSetting altId="rspi2.misoc.pb3" configurationId="rspi2.misoc"/>
-      <configSetting altId="rspi2.mode.custom.free" configurationId="rspi2.mode"/>
-      <configSetting altId="rspi2.mosic.pb4" configurationId="rspi2.mosic"/>
-      <configSetting altId="rspi2.rspckc.pb5" configurationId="rspi2.rspckc"/>
-      <configSetting altId="rspi2.sslc0.pa7" configurationId="rspi2.sslc0"/>
       <configSetting altId="xspi.mode.custom.free" configurationId="xspi.mode"/>
       <configSetting altId="xspi.xspi0_ckp.xspi0_ckp" configurationId="xspi.xspi0_ckp"/>
       <configSetting altId="xspi.xspi0_cs0n.xspi0_cs0n" configurationId="xspi.xspi0_cs0n"/>
