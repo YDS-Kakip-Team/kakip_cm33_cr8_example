@@ -339,10 +339,14 @@
       <configSetting altId="p72.gpio_mode.gpio_mode_peripheral" configurationId="p72.gpio_mode"/>
       <configSetting altId="p73.rsci5.rxd5_miso5_scl5" configurationId="p73"/>
       <configSetting altId="p73.gpio_mode.gpio_mode_peripheral" configurationId="p73.gpio_mode"/>
+      <configSetting altId="p74.input" configurationId="p74"/>
+      <configSetting altId="p74.gpio_mode.gpio_mode_in" configurationId="p74.gpio_mode"/>
       <configSetting altId="p84.output.toinput.low" configurationId="p84"/>
       <configSetting altId="p84.gpio_mode.gpio_mode_out.toinput.low" configurationId="p84.gpio_mode"/>
       <configSetting altId="p85.output.toinput.low" configurationId="p85"/>
       <configSetting altId="p85.gpio_mode.gpio_mode_out.toinput.low" configurationId="p85.gpio_mode"/>
+      <configSetting altId="pa7.input" configurationId="pa7"/>
+      <configSetting altId="pa7.gpio_mode.gpio_mode_in" configurationId="pa7.gpio_mode"/>
       <configSetting altId="rsci5.mode.asynchronousuart.free" configurationId="rsci5.mode"/>
       <configSetting altId="rsci5.rxd5_miso5_scl5.p73" configurationId="rsci5.rxd5_miso5_scl5"/>
       <configSetting altId="rsci5.txd5_mosi5_sda5.p72" configurationId="rsci5.txd5_mosi5_sda5"/>
