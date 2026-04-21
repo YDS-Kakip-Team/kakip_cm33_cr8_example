@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<raConfiguration version="11">
+  <generalSettings>
+    <option key="#Board#" value="board.rzv2h_evk"/>
+    <option key="CPU" value="RZV2H"/>
+    <option key="Core" value="CR8_1"/>
+    <option key="#TargetName#" value="R9A09G057H44GBG"/>
+    <option key="#TargetARCHITECTURE#" value="cortex-r8"/>
+    <option key="#DeviceCommand#" value="R9A09G057H44GBG"/>
+    <option key="#RTOS#" value="_none"/>
+    <option key="#pinconfiguration#" value="R9A09G057H44GBG.pincfg"/>
+    <option key="#FSPVersion#" value="3.0.0"/>
+    <option key="#ConfigurationFragments#" value="Renesas##BSP##Board##rzv2h_evk##"/>
+    <option key="#SELECTED_TOOLCHAIN#" value="gcc-arm-embedded"/>
+    <option key="#ToolchainVersion#" value="13.3.1.arm-13-24"/>
+  </generalSettings>
+  <raBspConfiguration>
+    <config id="config.bsp.rzv2h.R9A09G057H44GBG">
+      <property id="config.bsp.part_number" value="config.bsp.part_number.value"/>
+      <property id="config.bsp.rom_size_bytes" value="config.bsp.rom_size_bytes.value"/>
+      <property id="config.bsp.ram_size_bytes" value="config.bsp.ram_size_bytes.value"/>
+      <property id="config.bsp.package_style" value="config.bsp.package_style.value"/>
+      <property id="config.bsp.package_pins" value="config.bsp.package_pins.value"/>
+    </config>
+    <config id="config.bsp.rzv2h.cr8_1">
+      <property id="config.bsp.series" value="config.bsp.series.value"/>
+    </config>
+    <config id="config.bsp.rzv2h.fsp.cr8_1">
+      <property id="config.bsp.fsp.inline_irq_functions" value="config.bsp.common.inline_irq_functions.enabled"/>
+      <property id="config.bsp.fsp.mcu.spi.max_bitrate" value="50000000"/>
+      <property id="config.bsp.fsp.mcu.sci_b_uart.max_baud" value="16666667"/>
+      <property id="config.bsp.fsp.mcu.sci_b_spi.max_bitrate" value="25000000"/>
+      <property id="config.bsp.fsp.mcu.canfd.max_data_rate_hz" value="8"/>
+      <property id="config.bsp.fsp.mcu.canfd.min_nominal_timeseg1" value="2"/>
+      <property id="config.bsp.fsp.mcu.canfd.max_nominal_timeseg1" value="256"/>
+      <property id="config.bsp.fsp.mcu.canfd.max_nominal_timeseg2" value="128"/>
+      <property id="config.bsp.fsp.mcu.canfd.max_nominal_sync_jump_width" value="128"/>
+      <property id="config.bsp.fsp.mcu.canfd.max_data_prescaler" value="1024"/>
+      <property id="config.bsp.fsp.mcu.canfd.max_data_timeseg1" value="32"/>
+      <property id="config.bsp.fsp.mcu.canfd.max_data_timeseg2" value="16"/>
+      <property id="config.bsp.fsp.mcu.canfd.max_data_sync_jump_width" value="16"/>
+      <property id="config.bsp.fsp.mcu.canfd.max_rxmb_number" value="96"/>
+      <property id="config.bsp.fsp.mcu.canfd.afl_rules" value="768"/>
+      <property id="config.bsp.fsp.mcu.canfd.afl_rules_each_chnl" value="128"/>
+      <property id="config.bsp.fsp.mcu.canfd.buffer_ram" value="14592"/>
+    </config>
+    <config id="config.bsp.rz.cr8">
+      <property id="config.bsp.common.fiq" value="0x1000"/>
+      <property id="config.bsp.common.irq" value="0x1000"/>
+      <property id="config.bsp.common.abt" value="0x1000"/>
+      <property id="config.bsp.common.und" value="0x1000"/>
+      <property id="config.bsp.common.sys" value="0x1000"/>
+      <property id="config.bsp.common.svc" value="0x1000"/>
+      <property id="config.bsp.common.heap" value="0x8000"/>
+      <property id="config.bsp.common.vcc" value="3300"/>
+      <property id="config.bsp.common.checking" value="config.bsp.common.checking.disabled"/>
+      <property id="config.bsp.common.assert" value="config.bsp.common.assert.none"/>
+      <property id="config.bsp.common.error_log" value="config.bsp.common.error_log.none"/>
+      <property id="config.bsp.common.pfs_protect" value="config.bsp.common.pfs_protect.enabled"/>
+      <property id="config.bsp.common.c_runtime_init" value="config.bsp.common.c_runtime_init.enabled"/>
+      <property id="config.caches" value="config.caches.enabled"/>
+    </config>
+  </raBspConfiguration>
+  <raClockConfiguration>
+    <node id="board.clock.osc.freq" option="board.clock.osc.freq.value"/>
+    <node id="board.clock.pllcm33.freq" mul="1600000000" option="_edit"/>
+    <node id="board.clock.dummy1" option="board.clock.dummy1.freq"/>
+    <node id="board.clock.cddiv0.divctl0" option="board.clock.cddiv0.divctl0.2"/>
+    <node id="board.clock.pllcm33.div1" option="board.clock.pllcm33.div1.2"/>
+    <node id="board.clock.atclk.display" option="board.clock.atclk.display.value"/>
+    <node id="board.clock.pllcm33.div2" option="board.clock.pllcm33.div2.4"/>
+    <node id="board.clock.cddiv0.divctl1" option="board.clock.cddiv0.divctl1.2"/>
+    <node id="board.clock.i7clk.display" option="board.clock.i7clk.display.value"/>
+    <node id="board.clock.pllcm33.div3" option="board.clock.pllcm33.div3.2"/>
+    <node id="board.clock.p0clk.display" option="board.clock.p0clk.display.value"/>
+    <node id="board.clock.pllcm33.div4" option="board.clock.pllcm33.div4.16"/>
+    <node id="board.clock.p1clk.display" option="board.clock.p1clk.display.value"/>
+    <node id="board.clock.pllcm33.div5" option="board.clock.pllcm33.div5.32"/>
+    <node id="board.clock.p2clk.display" option="board.clock.p2clk.display.value"/>
+    <node id="board.clock.pllcm33.div6" option="board.clock.pllcm33.div6.2"/>
+    <node id="board.clock.csdiv1.divctl0" option="board.clock.csdiv1.divctl0.8"/>
+    <node id="board.clock.csdiv1.divctl1" option="board.clock.csdiv1.divctl1.2"/>
+    <node id="board.clock.adcclk.display" option="board.clock.adcclk.display.value"/>
+    <node id="board.clock.pllcm33.div7" option="board.clock.pllcm33.div7.3"/>
+    <node id="board.clock.ssel1.selctl2.sel" option="board.clock.ssel1.selctl2.sel.533"/>
+    <node id="board.clock.ssel1.selctl3.sel" option="board.clock.ssel1.selctl3.sel.smux2_xspi_clk0"/>
+    <node id="board.clock.csdiv0.divctl3" option="board.clock.csdiv0.divctl3.2"/>
+    <node id="board.clock.spi0clk.display" option="board.clock.spi0clk.display.value"/>
+    <node id="board.clock.pllcm33.div8" option="board.clock.pllcm33.div8.5"/>
+    <node id="board.clock.pllcm33.div9" option="board.clock.pllcm33.div9.2"/>
+    <node id="board.clock.spi1clk.display" option="board.clock.spi1clk.display.value"/>
+    <node id="board.clock.pllcln.freq" mul="1600000000" option="_edit"/>
+    <node id="board.clock.dummy2" option="board.clock.dummy2.freq"/>
+    <node id="board.clock.pllcln.div1" option="board.clock.pllcln.div1.2"/>
+    <node id="board.clock.sdclk.display" option="board.clock.sdclk.display.value"/>
+    <node id="board.clock.pllcln.div2" option="board.clock.pllcln.div2.4"/>
+    <node id="board.clock.p3clk.display" option="board.clock.p3clk.display.value"/>
+    <node id="board.clock.pllcln.div3" option="board.clock.pllcln.div3.8"/>
+    <node id="board.clock.p4clk.display" option="board.clock.p4clk.display.value"/>
+    <node id="board.clock.pllcln.div4" option="board.clock.pllcln.div4.16"/>
+    <node id="board.clock.p5clk.display" option="board.clock.p5clk.display.value"/>
+    <node id="board.clock.pllcln.div5" option="board.clock.pllcln.div5.20"/>
+    <node id="board.clock.canclk.display" option="board.clock.canclk.display.value"/>
+    <node id="board.clock.pllcln.div6" option="board.clock.pllcln.div6.32"/>
+    <node id="board.clock.p6clk.display" option="board.clock.p6clk.display.value"/>
+    <node id="board.clock.plldty.freq" mul="1600000000" option="_edit"/>
+    <node id="board.clock.dummy3" option="board.clock.dummy3.freq"/>
+    <node id="board.clock.cddiv2.divctl1" option="board.clock.cddiv2.divctl1.2"/>
+    <node id="board.clock.i6clk.display" option="board.clock.i6clk.display.value"/>
+    <node id="board.clock.cddiv0.divctl2" option="board.clock.cddiv0.divctl2.2"/>
+    <node id="board.clock.plldty.div1" option="board.clock.plldty.div1.2"/>
+    <node id="board.clock.p7clk.display" option="board.clock.p7clk.display.value"/>
+    <node id="board.clock.plldty.div2" option="board.clock.plldty.div2.4"/>
+    <node id="board.clock.p8clk.display" option="board.clock.p8clk.display.value"/>
+    <node id="board.clock.plldty.div3" option="board.clock.plldty.div3.8"/>
+    <node id="board.clock.p9clk.display" option="board.clock.p9clk.display.value"/>
+    <node id="board.clock.plldty.div4" option="board.clock.plldty.div4.8"/>
+    <node id="board.clock.p10clk.display" option="board.clock.p10clk.display.value"/>
+    <node id="board.clock.plldty.div5" option="board.clock.plldty.div5.16"/>
+    <node id="board.clock.ztclk.display" option="board.clock.ztclk.display.value"/>
+    <node id="board.clock.cddiv3.divctl2" option="board.clock.cddiv3.divctl2.2"/>
+    <node id="board.clock.plldty.div6" option="board.clock.plldty.div6.4"/>
+    <node id="board.clock.p11clk.display" option="board.clock.p11clk.display.value"/>
+    <node id="board.clock.cddiv2.divctl2" option="board.clock.cddiv2.divctl2.2"/>
+    <node id="board.clock.plldty.div7" option="board.clock.plldty.div7.2"/>
+    <node id="board.clock.p12clk.display" option="board.clock.p12clk.display.value"/>
+    <node id="board.clock.pllca55.freq" mul="1800000000" option="_edit"/>
+    <node id="board.clock.dummy4" option="board.clock.dummy4.freq"/>
+    <node id="board.clock.cddiv1.divctl0" option="board.clock.cddiv1.divctl0.1"/>
+    <node id="board.clock.i0clk.display" option="board.clock.i0clk.display.value"/>
+    <node id="board.clock.cddiv1.divctl1" option="board.clock.cddiv1.divctl1.1"/>
+    <node id="board.clock.i1clk.display" option="board.clock.i1clk.display.value"/>
+    <node id="board.clock.cddiv1.divctl2" option="board.clock.cddiv1.divctl2.1"/>
+    <node id="board.clock.i2clk.display" option="board.clock.i2clk.display.value"/>
+    <node id="board.clock.cddiv1.divctl3" option="board.clock.cddiv1.divctl3.1"/>
+    <node id="board.clock.i3clk.display" option="board.clock.i3clk.display.value"/>
+    <node id="board.clock.pllca55.div1" option="board.clock.pllca55.div1.2"/>
+    <node id="board.clock.cddiv2.divctl0" option="board.clock.cddiv2.divctl0.2"/>
+    <node id="board.clock.i4clk.display" option="board.clock.i4clk.display.value"/>
+    <node id="board.clock.plldrp.freq" mul="1260000000" option="_edit"/>
+    <node id="board.clock.dummy5" option="board.clock.dummy5.freq"/>
+    <node id="board.clock.ssel0.selctl1.sel" option="board.clock.ssel0.selctl1.sel.plldrp"/>
+    <node id="board.clock.ssel0.selctl0.sel" option="board.clock.ssel0.selctl0.sel.smux2_ca55_sclk0"/>
+    <node id="board.clock.cddiv0.divctl3" option="board.clock.cddiv0.divctl3.1"/>
+    <node id="board.clock.i5clk.display" option="board.clock.i5clk.display.value"/>
+    <node id="board.clock.pllvdo.freq" mul="1260000000" option="_edit"/>
+    <node id="board.clock.dummy6" option="board.clock.dummy6.freq"/>
+    <node id="board.clock.cddiv3.divctl3" option="board.clock.cddiv3.divctl3.2"/>
+    <node id="board.clock.m0clk.display" option="board.clock.m0clk.display.value"/>
+    <node id="board.clock.cddiv4.divctl0" option="board.clock.cddiv4.divctl0.2"/>
+    <node id="board.clock.m1clk.display" option="board.clock.m1clk.display.value"/>
+    <node id="board.clock.cddiv4.divctl1" option="board.clock.cddiv4.divctl1.2"/>
+    <node id="board.clock.m2clk.display" option="board.clock.m2clk.display.value"/>
+    <node id="board.clock.cddiv4.divctl2" option="board.clock.cddiv4.divctl2.2"/>
+    <node id="board.clock.m3clk.display" option="board.clock.m3clk.display.value"/>
+    <node id="board.clock.cddiv2.divctl3" option="board.clock.cddiv2.divctl3.2"/>
+    <node id="board.clock.ispclk.display" option="board.clock.ispclk.display.value"/>
+    <node id="board.clock.cddiv3.divctl0" option="board.clock.cddiv3.divctl0.2"/>
+    <node id="board.clock.isuclk.display" option="board.clock.isuclk.display.value"/>
+    <node id="board.clock.plleth.freq" mul="1000000000" option="_edit"/>
+    <node id="board.clock.dummy7" option="board.clock.dummy7.freq"/>
+    <node id="board.clock.plleth.div1" option="board.clock.plleth.div1.4"/>
+    <node id="board.clock.csdiv0.divctl0" option="board.clock.csdiv0.divctl0.2"/>
+    <node id="board.clock.ssel0.selctl2.sel" option="board.clock.ssel0.selctl2.sel.plleth_gbe0_gear"/>
+    <node id="board.clock.ethtx0clk.display" option="board.clock.ethtx0clk.display.value"/>
+    <node id="board.clock.et0_txc_txclk.freq" option="board.clock.et0_txc_txclk.freq.value"/>
+    <node id="board.clock.ssel0.selctl3.sel" option="board.clock.ssel0.selctl3.sel.et0_rxc_rxclk"/>
+    <node id="board.clock.ethrx0clk.display" option="board.clock.ethrx0clk.display.value"/>
+    <node id="board.clock.et0_rxc_rxclk.freq" option="board.clock.et0_rxc_rxclk.freq.value"/>
+    <node id="board.clock.csdiv0.divctl1" option="board.clock.csdiv0.divctl1.2"/>
+    <node id="board.clock.ssel1.selctl0.sel" option="board.clock.ssel1.selctl0.sel.plleth_gbe1_gear"/>
+    <node id="board.clock.ethtx1clk.display" option="board.clock.ethtx1clk.display.value"/>
+    <node id="board.clock.et1_txc_txclk.freq" option="board.clock.et1_txc_txclk.freq.value"/>
+    <node id="board.clock.ssel1.selctl1.sel" option="board.clock.ssel1.selctl1.sel.et1_rxc_rxclk"/>
+    <node id="board.clock.ethrx1clk.display" option="board.clock.ethrx1clk.display.value"/>
+    <node id="board.clock.et1_rxc_rxclk.freq" option="board.clock.et1_rxc_rxclk.freq.value"/>
+    <node id="board.clock.plleth.div2" option="board.clock.plleth.div2.2"/>
+    <node id="board.clock.hpclk.display" option="board.clock.hpclk.display.value"/>
+    <node id="board.clock.plleth.div3" option="board.clock.plleth.div3.4"/>
+    <node id="board.clock.csdiv0.divctl2" option="board.clock.csdiv0.divctl2.16"/>
+    <node id="board.clock.lpclk.display" option="board.clock.lpclk.display.value"/>
+    <node id="board.clock.plldsi.freq" mul="297000000" option="_edit"/>
+    <node id="board.clock.dummy8" option="board.clock.dummy8.freq"/>
+    <node id="board.clock.csdiv1.divctl2" option="board.clock.csdiv0.divctl2.2"/>
+    <node id="board.clock.m4clk.display" option="board.clock.m4clk.display.value"/>
+    <node id="board.clock.pllgpu.freq" mul="1260000000" option="_edit"/>
+    <node id="board.clock.dummy9" option="board.clock.dummy9.freq"/>
+    <node id="board.clock.cddiv3.divctl1" option="board.clock.cddiv3.divctl1.2"/>
+    <node id="board.clock.gpuclk.display" option="board.clock.gpuclk.display.value"/>
+    <node id="board.clock.pllddr0.freq" mul="800000000" option="_edit"/>
+    <node id="board.clock.dummy10" option="board.clock.dummy10.freq"/>
+    <node id="board.clock.pllddr1.freq" mul="800000000" option="_edit"/>
+    <node id="board.clock.dummy11" option="board.clock.dummy11.freq"/>
+    <node id="board.clock.osc.div" option="board.clock.osc.div.5"/>
+    <node id="board.clock.osc2clk.display" option="board.clock.osc2clk.display.value"/>
+  </raClockConfiguration>
+  <raComponentSelection>
+    <component apiversion="" class="Projects" condition="" group="all" subgroup="baremetal_minimal_cr8" variant="" vendor="Renesas" version="3.0.0">
+      <description>Simple application. No RTOS included.</description>
+      <originalPack>Renesas.RZV_baremetal_minimal_cr8.3.0.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="3.0.0">
+      <description>Board Support Package Common Files</description>
+      <originalPack>Renesas.RZV.3.0.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_ioport" variant="" vendor="Renesas" version="3.0.0">
+      <description>I/O Port</description>
+      <originalPack>Renesas.RZV.3.0.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="rzv2h" subgroup="device" variant="R9A09G057H44GBG" vendor="Renesas" version="3.0.0">
+      <description>Board support package for R9A09G057H44GBG</description>
+      <originalPack>Renesas.RZV_mcu_rzv2h.3.0.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="rzv2h" subgroup="device" variant="" vendor="Renesas" version="3.0.0">
+      <description>Board support package for RZV2H</description>
+      <originalPack>Renesas.RZV_mcu_rzv2h.3.0.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="rzv2h" subgroup="fsp" variant="" vendor="Renesas" version="3.0.0">
+      <description>Board support package for RZ/V2H (RZ/V2H) - FSP Data</description>
+      <originalPack>Renesas.RZV_mcu_rzv2h.3.0.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="Board" subgroup="rzv2h_evk" variant="" vendor="Renesas" version="3.0.0">
+      <description>Evaluation Kit RZ/V2H Support Files (RZ/V2H)</description>
+      <originalPack>Renesas.RZV_board_rzv2h_evk.3.0.0.pack</originalPack>
+    </component>
+  </raComponentSelection>
+  <raElcConfiguration/>
+  <raIcuConfiguration/>
+  <raLinkMapConfiguration/>
+  <raModuleConfiguration>
+    <module id="module.driver.ioport_on_ioport.0">
+      <property id="module.driver.ioport.name" value="g_ioport"/>
+      <property id="module.driver.ioport.pincfg" value="g_bsp_pin_cfg"/>
+      <property id="module.driver.ioport.elc_trigger_output_group1" value="_disabled"/>
+      <property id="module.driver.ioport.port_select_output_group1" value=""/>
+      <property id="module.driver.ioport.operation_output_group1" value="module.driver.ioport.operation_output_group.low"/>
+      <property id="module.driver.ioport.elc_trigger_output_group2" value="_disabled"/>
+      <property id="module.driver.ioport.port_select_output_group2" value=""/>
+      <property id="module.driver.ioport.operation_output_group2" value="module.driver.ioport.operation_output_group.low"/>
+      <property id="module.driver.ioport.elc_trigger_input_group1" value="_disabled"/>
+      <property id="module.driver.ioport.event_control_input_group1" value="module.driver.ioport.event_control_input_group.disable"/>
+      <property id="module.driver.ioport.port_select_input_group1" value=""/>
+      <property id="module.driver.ioport.edge_detect_input_group1" value="module.driver.ioport.edge_detect_input_group.rising"/>
+      <property id="module.driver.ioport.buffer_overwrite_input_group1" value="module.driver.ioport.buffer_overwrite_input_group.disable"/>
+      <property id="module.driver.ioport.p60_initial_value_input_group1" value="module.driver.ioport.initial_value_input_group.low"/>
+      <property id="module.driver.ioport.p61_initial_value_input_group1" value="module.driver.ioport.initial_value_input_group.low"/>
+      <property id="module.driver.ioport.p62_initial_value_input_group1" value="module.driver.ioport.initial_value_input_group.low"/>
+      <property id="module.driver.ioport.p63_initial_value_input_group1" value="module.driver.ioport.initial_value_input_group.low"/>
+      <property id="module.driver.ioport.p64_initial_value_input_group1" value="module.driver.ioport.initial_value_input_group.low"/>
+      <property id="module.driver.ioport.p65_initial_value_input_group1" value="module.driver.ioport.initial_value_input_group.low"/>
+      <property id="module.driver.ioport.p66_initial_value_input_group1" value="module.driver.ioport.initial_value_input_group.low"/>
+      <property id="module.driver.ioport.p67_initial_value_input_group1" value="module.driver.ioport.initial_value_input_group.low"/>
+      <property id="module.driver.ioport.elc_trigger_input_group2" value="_disabled"/>
+      <property id="module.driver.ioport.event_control_input_group2" value="module.driver.ioport.event_control_input_group.disable"/>
+      <property id="module.driver.ioport.port_select_input_group2" value=""/>
+      <property id="module.driver.ioport.edge_detect_input_group2" value="module.driver.ioport.edge_detect_input_group.rising"/>
+      <property id="module.driver.ioport.buffer_overwrite_input_group2" value="module.driver.ioport.buffer_overwrite_input_group.disable"/>
+      <property id="module.driver.ioport.p80_initial_value_input_group2" value="module.driver.ioport.initial_value_input_group.low"/>
+      <property id="module.driver.ioport.p81_initial_value_input_group2" value="module.driver.ioport.initial_value_input_group.low"/>
+      <property id="module.driver.ioport.p82_initial_value_input_group2" value="module.driver.ioport.initial_value_input_group.low"/>
+      <property id="module.driver.ioport.p83_initial_value_input_group2" value="module.driver.ioport.initial_value_input_group.low"/>
+      <property id="module.driver.ioport.p84_initial_value_input_group2" value="module.driver.ioport.initial_value_input_group.low"/>
+      <property id="module.driver.ioport.p85_initial_value_input_group2" value="module.driver.ioport.initial_value_input_group.low"/>
+      <property id="module.driver.ioport.p86_initial_value_input_group2" value="module.driver.ioport.initial_value_input_group.low"/>
+      <property id="module.driver.ioport.p87_initial_value_input_group2" value="module.driver.ioport.initial_value_input_group.low"/>
+      <property id="module.driver.ioport.event_control_single_port0" value="module.driver.ioport.event_control_single_port.disable"/>
+      <property id="module.driver.ioport.event_direction_single_port0" value="module.driver.ioport.event_direction_single_port.output"/>
+      <property id="module.driver.ioport.port_number_single_port0" value="module.driver.ioport.port_number_single_port.p60"/>
+      <property id="module.driver.ioport.elc_trigger_single_output_port0" value="_disabled"/>
+      <property id="module.driver.ioport.operation_single_output_port0" value="module.driver.ioport.operation_single_output_port.low"/>
+      <property id="module.driver.ioport.edge_detect_single_input_port0" value="module.driver.ioport.edge_detect_single_input_port.rising"/>
+      <property id="module.driver.ioport.event_control_single_port1" value="module.driver.ioport.event_control_single_port.disable"/>
+      <property id="module.driver.ioport.event_direction_single_port1" value="module.driver.ioport.event_direction_single_port.output"/>
+      <property id="module.driver.ioport.port_number_single_port1" value="module.driver.ioport.port_number_single_port.p60"/>
+      <property id="module.driver.ioport.elc_trigger_single_output_port1" value="_disabled"/>
+      <property id="module.driver.ioport.operation_single_output_port1" value="module.driver.ioport.operation_single_output_port.low"/>
+      <property id="module.driver.ioport.edge_detect_single_input_port1" value="module.driver.ioport.edge_detect_single_input_port.rising"/>
+      <property id="module.driver.ioport.event_control_single_port2" value="module.driver.ioport.event_control_single_port.disable"/>
+      <property id="module.driver.ioport.event_direction_single_port2" value="module.driver.ioport.event_direction_single_port.output"/>
+      <property id="module.driver.ioport.port_number_single_port2" value="module.driver.ioport.port_number_single_port.p60"/>
+      <property id="module.driver.ioport.elc_trigger_single_output_port2" value="_disabled"/>
+      <property id="module.driver.ioport.operation_single_output_port2" value="module.driver.ioport.operation_single_output_port.low"/>
+      <property id="module.driver.ioport.edge_detect_single_input_port2" value="module.driver.ioport.edge_detect_single_input_port.rising"/>
+      <property id="module.driver.ioport.event_control_single_port3" value="module.driver.ioport.event_control_single_port.disable"/>
+      <property id="module.driver.ioport.event_direction_single_port3" value="module.driver.ioport.event_direction_single_port.output"/>
+      <property id="module.driver.ioport.port_number_single_port3" value="module.driver.ioport.port_number_single_port.p60"/>
+      <property id="module.driver.ioport.elc_trigger_single_output_port3" value="_disabled"/>
+      <property id="module.driver.ioport.operation_single_output_port3" value="module.driver.ioport.operation_single_output_port.low"/>
+      <property id="module.driver.ioport.edge_detect_single_input_port3" value="module.driver.ioport.edge_detect_single_input_port.rising"/>
+    </module>
+    <context id="_hal.0">
+      <stack module="module.driver.ioport_on_ioport.0"/>
+    </context>
+    <config id="config.driver.ioport">
+      <property id="config.driver.ioport.checking" value="config.driver.ioport.checking.system"/>
+    </config>
+  </raModuleConfiguration>
+  <raPinConfiguration>
+    <pincfg active="true" name="R9A09G057H44GBG.pincfg" selected="true" symbol="g_bsp_pin_cfg"/>
+    <pincfg active="false" name="RZV2H-EVK.pincfg" selected="false" symbol="">
+      <configSetting altId="irq.irq0.p70" configurationId="irq.irq0"/>
+      <configSetting altId="irq.irq13.p57" configurationId="irq.irq13"/>
+      <configSetting altId="irq.irq4.p72" configurationId="irq.irq4"/>
+      <configSetting altId="irq.irq8.p74" configurationId="irq.irq8"/>
+      <configSetting altId="irq.irq9.p55" configurationId="irq.irq9"/>
+      <configSetting altId="irq.mode.custom.free" configurationId="irq.mode"/>
+      <configSetting altId="p06.riic8.sda8" configurationId="p06"/>
+      <configSetting altId="p06.gpio_speed.gpio_speed_x6" configurationId="p06.gpio_drivecapacity"/>
+      <configSetting altId="p06.gpio_mode.gpio_mode_peripheral" configurationId="p06.gpio_mode"/>
+      <configSetting altId="p06.smt.smt.enable" configurationId="p06.smt"/>
+      <configSetting altId="p07.riic8.scl8" configurationId="p07"/>
+      <configSetting altId="p07.gpio_speed.gpio_speed_x6" configurationId="p07.gpio_drivecapacity"/>
+      <configSetting altId="p07.gpio_mode.gpio_mode_peripheral" configurationId="p07.gpio_mode"/>
+      <configSetting altId="p07.smt.smt.enable" configurationId="p07.smt"/>
+      <configSetting altId="p20.riic2.sda2" configurationId="p20"/>
+      <configSetting altId="p20.gpio_speed.gpio_speed_x6" configurationId="p20.gpio_drivecapacity"/>
+      <configSetting altId="p20.gpio_mode.gpio_mode_peripheral" configurationId="p20.gpio_mode"/>
+      <configSetting altId="p21.riic2.scl2" configurationId="p21"/>
+      <configSetting altId="p21.gpio_speed.gpio_speed_x6" configurationId="p21.gpio_drivecapacity"/>
+      <configSetting altId="p21.gpio_mode.gpio_mode_peripheral" configurationId="p21.gpio_mode"/>
+      <configSetting altId="p50.rsci0.txd0_mosi0_sda0" configurationId="p50"/>
+      <configSetting altId="p50.gpio_mode.gpio_mode_peripheral" configurationId="p50.gpio_mode"/>
+      <configSetting altId="p51.rsci0.rxd0_miso0_scl0" configurationId="p51"/>
+      <configSetting altId="p51.gpio_mode.gpio_mode_peripheral" configurationId="p51.gpio_mode"/>
+      <configSetting altId="p52.rsci0.sck0" configurationId="p52"/>
+      <configSetting altId="p52.gpio_mode.gpio_mode_peripheral" configurationId="p52.gpio_mode"/>
+      <configSetting altId="p53.rsci0.ss0_cts0n_rts0n" configurationId="p53"/>
+      <configSetting altId="p53.gpio_mode.gpio_mode_peripheral" configurationId="p53.gpio_mode"/>
+      <configSetting altId="p55.irq.irq9" configurationId="p55"/>
+      <configSetting altId="p55.gpio_mode.gpio_mode_peripheral" configurationId="p55.gpio_mode"/>
+      <configSetting altId="p55.smt.smt.enable" configurationId="p55.smt"/>
+      <configSetting altId="p57.irq.irq13" configurationId="p57"/>
+      <configSetting altId="p57.gpio_mode.gpio_mode_peripheral" configurationId="p57.gpio_mode"/>
+      <configSetting altId="p57.smt.smt.enable" configurationId="p57.smt"/>
+      <configSetting altId="p70.irq.irq0" configurationId="p70"/>
+      <configSetting altId="p70.gpio_mode.gpio_mode_peripheral" configurationId="p70.gpio_mode"/>
+      <configSetting altId="p70.smt.smt.enable" configurationId="p70.smt"/>
+      <configSetting altId="p72.irq.irq4" configurationId="p72"/>
+      <configSetting altId="p72.gpio_mode.gpio_mode_peripheral" configurationId="p72.gpio_mode"/>
+      <configSetting altId="p72.smt.smt.enable" configurationId="p72.smt"/>
+      <configSetting altId="p74.irq.irq8" configurationId="p74"/>
+      <configSetting altId="p74.gpio_mode.gpio_mode_peripheral" configurationId="p74.gpio_mode"/>
+      <configSetting altId="p74.smt.smt.enable" configurationId="p74.smt"/>
+      <configSetting altId="pa7.rspi2.sslc0" configurationId="pa7"/>
+      <configSetting altId="pa7.gpio_speed.gpio_speed_x6" configurationId="pa7.gpio_drivecapacity"/>
+      <configSetting altId="pa7.gpio_mode.gpio_mode_peripheral" configurationId="pa7.gpio_mode"/>
+      <configSetting altId="pb3.rspi2.misoc" configurationId="pb3"/>
+      <configSetting altId="pb3.gpio_speed.gpio_speed_x6" configurationId="pb3.gpio_drivecapacity"/>
+      <configSetting altId="pb3.gpio_mode.gpio_mode_peripheral" configurationId="pb3.gpio_mode"/>
+      <configSetting altId="pb4.rspi2.mosic" configurationId="pb4"/>
+      <configSetting altId="pb4.gpio_speed.gpio_speed_x6" configurationId="pb4.gpio_drivecapacity"/>
+      <configSetting altId="pb4.gpio_mode.gpio_mode_peripheral" configurationId="pb4.gpio_mode"/>
+      <configSetting altId="pb5.rspi2.rspckc" configurationId="pb5"/>
+      <configSetting altId="pb5.gpio_speed.gpio_speed_x6" configurationId="pb5.gpio_drivecapacity"/>
+      <configSetting altId="pb5.gpio_mode.gpio_mode_peripheral" configurationId="pb5.gpio_mode"/>
+      <configSetting altId="riic2.mode.custom.free" configurationId="riic2.mode"/>
+      <configSetting altId="riic2.scl2.p21" configurationId="riic2.scl2"/>
+      <configSetting altId="riic2.sda2.p20" configurationId="riic2.sda2"/>
+      <configSetting altId="riic8.mode.custom.free" configurationId="riic8.mode"/>
+      <configSetting altId="riic8.scl8.p07" configurationId="riic8.scl8"/>
+      <configSetting altId="riic8.sda8.p06" configurationId="riic8.sda8"/>
+      <configSetting altId="rsci0.mode.custom.free" configurationId="rsci0.mode"/>
+      <configSetting altId="rsci0.rxd0_miso0_scl0.p51" configurationId="rsci0.rxd0_miso0_scl0"/>
+      <configSetting altId="rsci0.sck0.p52" configurationId="rsci0.sck0"/>
+      <configSetting altId="rsci0.ss0_cts0n_rts0n.p53" configurationId="rsci0.ss0_cts0n_rts0n"/>
+      <configSetting altId="rsci0.txd0_mosi0_sda0.p50" configurationId="rsci0.txd0_mosi0_sda0"/>
+      <configSetting altId="rspi2.misoc.pb3" configurationId="rspi2.misoc"/>
+      <configSetting altId="rspi2.mode.custom.free" configurationId="rspi2.mode"/>
+      <configSetting altId="rspi2.mosic.pb4" configurationId="rspi2.mosic"/>
+      <configSetting altId="rspi2.rspckc.pb5" configurationId="rspi2.rspckc"/>
+      <configSetting altId="rspi2.sslc0.pa7" configurationId="rspi2.sslc0"/>
+      <configSetting altId="xspi.mode.custom.free" configurationId="xspi.mode"/>
+      <configSetting altId="xspi.xspi0_ckp.xspi0_ckp" configurationId="xspi.xspi0_ckp"/>
+      <configSetting altId="xspi.xspi0_cs0n.xspi0_cs0n" configurationId="xspi.xspi0_cs0n"/>
+      <configSetting altId="xspi.xspi0_io0.xspi0_io0" configurationId="xspi.xspi0_io0"/>
+      <configSetting altId="xspi.xspi0_io1.xspi0_io1" configurationId="xspi.xspi0_io1"/>
+      <configSetting altId="xspi.xspi0_io2.xspi0_io2" configurationId="xspi.xspi0_io2"/>
+      <configSetting altId="xspi.xspi0_io3.xspi0_io3" configurationId="xspi.xspi0_io3"/>
+      <configSetting altId="xspi.xspi0_reset0n.xspi0_reset0n" configurationId="xspi.xspi0_reset0n"/>
+      <configSetting altId="xspi0_ckp.xspi.xspi0_ckp" configurationId="xspi0_ckp"/>
+      <configSetting altId="xspi0_cs0n.xspi.xspi0_cs0n" configurationId="xspi0_cs0n"/>
+      <configSetting altId="xspi0_io0.xspi.xspi0_io0" configurationId="xspi0_io0"/>
+      <configSetting altId="xspi0_io1.xspi.xspi0_io1" configurationId="xspi0_io1"/>
+      <configSetting altId="xspi0_io2.xspi.xspi0_io2" configurationId="xspi0_io2"/>
+      <configSetting altId="xspi0_io3.xspi.xspi0_io3" configurationId="xspi0_io3"/>
+      <configSetting altId="xspi0_reset0n.xspi.xspi0_reset0n" configurationId="xspi0_reset0n"/>
+    </pincfg>
+  </raPinConfiguration>
+</raConfiguration>
