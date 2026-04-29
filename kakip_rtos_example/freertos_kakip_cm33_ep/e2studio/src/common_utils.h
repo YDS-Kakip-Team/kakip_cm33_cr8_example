@@ -20,8 +20,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include "hal_data.h"
-/* SEGGER RTT and error related headers */
-#include "SEGGER_RTT.h"
+/* UART console output */
+#include "console.h"
 
 #define BIT_SHIFT_8  (8u)
 #define SIZE_64      (64u)
@@ -39,18 +39,13 @@
                                 "\r\nRefer to readme.txt file for more details on Example Project and" \
                                 "\r\nFSP User's Manual for more information about "MODULE_NAME" driver\r\n"
 
-#define SEGGER_INDEX            (0)
-#define APP_PRINT(fn_, ...)      (SEGGER_RTT_printf (SEGGER_INDEX,(fn_), ##__VA_ARGS__))
+#define APP_PRINT(fn_, ...)      console_print((fn_), ##__VA_ARGS__)
 
 #define APP_ERR_PRINT(fn_, ...)  if(LVL_ERR)\
-        SEGGER_RTT_printf (SEGGER_INDEX, "[ERR] In Function: %s(), %s",__FUNCTION__,(fn_),##__VA_ARGS__);
+        console_print("[ERR] In Function: %s(), %s",__FUNCTION__,(fn_),##__VA_ARGS__);
 
 #define APP_ERR_TRAP(err)        if(err) {\
-        SEGGER_RTT_printf(SEGGER_INDEX, "\r\nReturned Error Code: 0x%x  \r\n", err);\
+        console_print("\r\nReturned Error Code: 0x%x  \r\n", err);\
         __asm("BKPT #0\n");} /* trap upon the error  */
-
-#define APP_READ(read_data)     SEGGER_RTT_Read (SEGGER_INDEX, read_data, sizeof(read_data));
-
-#define APP_CHECK_DATA          SEGGER_RTT_HasKey()
 
 #endif /* COMMON_UTILS_H_ */
