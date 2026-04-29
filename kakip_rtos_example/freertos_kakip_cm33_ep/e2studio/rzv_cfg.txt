@@ -3080,7 +3080,7 @@ FSP Configuration
   Thread "Receiver Task"
     Symbol: receiver_task
     Name: Receiver Task
-    Stack size (bytes): 512
+    Stack size (bytes): 1024
     Priority: 1
     Thread Context: NULL
     Memory Allocation: Dynamic
