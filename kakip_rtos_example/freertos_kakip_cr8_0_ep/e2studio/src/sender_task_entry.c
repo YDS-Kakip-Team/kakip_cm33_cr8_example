@@ -30,10 +30,17 @@ void sender_task_entry(void *pvParameters)
     /* Initialize the message to send to Message Queue */
     msg_t message_to_task = {100 , "Sender_Task"};
 
+    /* Initialize UART console */
+    fsp_err_t err = console_init();
+    if (FSP_SUCCESS != err)
+    {
+        while (1) { /* UART init failed, halt */ }
+    }
+
     /* version get API for FLEX pack information */
     R_FSP_VersionGet (&version);
 
-    /* Example Project information printed on the RTT */
+    /* Example Project information printed on the UART */
     APP_PRINT(BANNER_INFO, EP_VERSION, version.version_id_b.major, version.version_id_b.minor, version.version_id_b.patch);
     APP_PRINT (EP_INFO);
 
