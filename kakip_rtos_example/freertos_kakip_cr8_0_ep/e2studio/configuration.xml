@@ -306,7 +306,7 @@
     </module>
     <module id="module.driver.timer_on_gtm.3">
       <property id="module.driver.timer.name" value="g_timer2"/>
-      <property id="module.driver.timer.channel" value="enum.mcu.gtm.channels.3"/>
+      <property id="module.driver.timer.channel" value="enum.mcu.gtm.channels.0"/>
       <property id="module.driver.timer.mode" value="module.driver.timer.mode.mode_periodic"/>
       <property id="module.driver.timer.period" value="1000"/>
       <property id="module.driver.timer.unit" value="module.driver.timer.unit.unit_frequency_hz"/>

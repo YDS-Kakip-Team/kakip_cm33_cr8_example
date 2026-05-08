@@ -2954,7 +2954,7 @@ FSP Configuration
       
       Instance "g_timer2 Timer (r_gtm)"
         General: Name: g_timer2
-        General: Channel: GTM3
+        General: Channel: GTM0
         General: Mode: Periodic
         General: Period: 1000
         General: Period Unit: Hertz
