@@ -73,10 +73,22 @@ void semaphore_task_entry (void *pvParameters)
                 APP_ERR_TRAP (fsp_err);
             }
 
-            APP_PRINT ("\r\nSemaphore Task : Suspending Semaphore Task\r\n");
-            APP_PRINT ("\r\nSemaphore Task : Application ends here. Restart to run the application again\r\n");
-            /* Suspends calling task */
+            APP_PRINT ("\r\nSemaphore Task : Cycle complete, resuming Sender Task for next cycle\r\n");
+
+            /* Reset flag and resume sender task for next cycle */
+            b_suspend_semphr_task = false;
+            vTaskResume (sender_task);
+
+            /* Suspend self until next cycle */
             vTaskSuspend (RESET_VALUE);
+
+            /* --- Resumed by Sender Task for next cycle --- */
+            APP_PRINT ("\r\n Semaphore Task : Starting g_periodic_timer_sem timer");
+            fsp_err = gtm_timer_init ( &g_periodic_timer_sem_ctrl , &g_periodic_timer_sem_cfg );
+            if(FSP_SUCCESS != fsp_err)
+            {
+                APP_ERR_TRAP(fsp_err);
+            }
         }
     }
 }
@@ -95,6 +107,12 @@ void periodic_timer_semphr_cb(timer_callback_args_t *p_args)
     /* Counter to track task suspend count */
     static uint8_t semphr_counter = RESET_VALUE;
 
+    /* Skip if flagged to suspend */
+    if (true == b_suspend_semphr_task)
+    {
+        return;
+    }
+
     /* Variable is set to true if priority of unblocked task is higher
      * than the task that was in running state when interrupt occurred */
     BaseType_t xHigherPriorityTaskWoken = pdFALSE;
@@ -104,6 +122,7 @@ void periodic_timer_semphr_cb(timer_callback_args_t *p_args)
     {
         /* Set flag to suspend Semaphore tasks */
         b_suspend_semphr_task = true;
+        semphr_counter = RESET_VALUE;
     }
     else
     {

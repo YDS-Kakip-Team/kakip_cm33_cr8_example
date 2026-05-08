@@ -13,8 +13,8 @@
 
 #define EP_INFO     "\r\nMessages are shared between Sender_Task, ISR and Receiver_Task for the first few seconds.\n"\
     "Later, Sender and Receiver Tasks will be suspended timer will be stopped. Semaphore is acquired\n"\
-    "and released between Semaphore Task and ISR for the next few seconds and Semaphore Task is suspended.\n"\
-    "To restart the application, power cycle the board.\n"
+    "and released between Semaphore Task and ISR for the next few seconds.\n"\
+    "The demo runs continuously in cycles to verify long-term stability.\n"
 
 #define WAIT_TIME                   (500u)          // Wait time for task on Semaphore and Message Queue
 #define TASK_SUSPEND_COUNT          (10u)           // No of times the ISR executes total for a ( TASK_SUSPEND_COUNT * timer period )sec run time
@@ -26,6 +26,7 @@ typedef struct {
 }msg_t;
 
 /* Task handles */
+extern TaskHandle_t sender_task;
 extern TaskHandle_t receiver_task;
 extern TaskHandle_t semaphore_task;
 

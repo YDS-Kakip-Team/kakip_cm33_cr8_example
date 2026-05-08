@@ -16,6 +16,9 @@
 /* Flag to check Message Queue task completion */
 static bool b_suspend_msqQ_task = false;
 
+/* Cycle counter */
+static uint32_t g_cycle_count = 0;
+
 /* Sender Task entry function */
 /* pvParameters contains TaskHandle_t */
 void sender_task_entry(void *pvParameters)
@@ -122,13 +125,28 @@ void sender_task_entry(void *pvParameters)
                 vTaskSuspend (receiver_task);
                 APP_PRINT ("\r\nSender_Task : Receiver Task Suspended\r\n");
 
-                /* Before suspending current task resume the semaphore task */
+                /* Resume semaphore task and suspend self; semaphore task will resume us for next cycle */
                 vTaskResume (semaphore_task);
-                APP_PRINT ("\r\nSender_Task : Semaphore Task Resumed\r\n");
-                APP_PRINT ("\r\nSender_Task : Suspending Sender Task\r\n");
+                APP_PRINT ("\r\nSender_Task : Semaphore Task Resumed, suspending Sender Task\r\n");
 
                 /* Suspends calling task */
                 vTaskSuspend (RESET_VALUE);
+
+                /* --- Resumed by Semaphore Task for next cycle --- */
+                g_cycle_count++;
+                APP_PRINT ("\r\n=== Cycle %lu starting ===\r\n", (unsigned long)g_cycle_count);
+
+                /* Reset flag and restart message queue timer */
+                b_suspend_msqQ_task = false;
+                last_execution_time = xTaskGetTickCount();
+
+                vTaskResume (receiver_task);
+
+                fsp_err = gtm_timer_init ( &g_periodic_timer_msgq_ctrl , &g_periodic_timer_msgq_cfg );
+                if(FSP_SUCCESS != fsp_err)
+                {
+                    APP_ERR_TRAP(fsp_err);
+                }
             }
         }
     }
@@ -148,6 +166,12 @@ void periodic_timer_msgq_cb(timer_callback_args_t *p_args)
     /* Counter to track task suspend count */
     static uint8_t msgQ_counter = RESET_VALUE;
 
+    /* Skip if flagged to suspend */
+    if (true == b_suspend_msqQ_task)
+    {
+        return;
+    }
+
     /* Variable is set to true if priority of unblocked task is higher
      * than the task that was in running state when interrupt occurred */
     BaseType_t xHigherPriorityTaskWoken = pdFALSE;
@@ -160,6 +184,7 @@ void periodic_timer_msgq_cb(timer_callback_args_t *p_args)
     {
         /* Set flag to suspend Message Queue tasks */
         b_suspend_msqQ_task = true;
+        msgQ_counter = RESET_VALUE;
     }
     else
     {
