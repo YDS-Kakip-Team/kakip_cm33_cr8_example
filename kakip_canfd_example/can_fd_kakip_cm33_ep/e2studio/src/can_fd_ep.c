@@ -55,14 +55,12 @@ extern bool b_canfd_ch3_tx_complete ;
 extern bool b_canfd_ch3_rx_complete ;
 extern bool b_canfd_err_status ;
 
-extern bsp_leds_t g_leds;
 extern uint32_t g_time_out;
 
 /* User defined functions */
 static void can_write_operation(canfd_instance_ctrl_t p_api_ctrl, can_frame_t can_transmit_frame);
 static void can_fd_data_update(void);
 static void can_data_check_operation(void);
-void led_update(led_state_t led_state);
 
 
 /*******************************************************************************************************************//**
@@ -106,12 +104,10 @@ static void can_write_operation(canfd_instance_ctrl_t p_api_ctrl, can_frame_t ca
     if (FSP_SUCCESS != err)
     {
         APP_ERR_PRINT("\nCANFD Write API FAILED");
-        led_update(error);
         canfd_deinit();
         APP_ERR_TRAP(err);
     }
 
-    led_update(transmitting);
     /* Wait here for an event from callback */
     while ((true != b_canfd_ch0_tx_complete) && (true != b_canfd_ch3_tx_complete))
     {
@@ -119,7 +115,6 @@ static void can_write_operation(canfd_instance_ctrl_t p_api_ctrl, can_frame_t ca
         if (RESET_VALUE == g_time_out)
         {
            APP_ERR_PRINT("\nCAN transmission failed due to timeout");
-           led_update(error);
            APP_ERR_TRAP(true);
            break;
         }
@@ -233,7 +228,6 @@ static void can_data_check_operation(void)
     else /* Wrong MSG Received */
     {
         APP_ERR_PRINT("\nCAN data mismatch\r\nCAN operation failed");
-        led_update(error);
         APP_ERR_TRAP(true);
     }
 }
@@ -255,7 +249,6 @@ void can_read_operation(void)
         if (FSP_SUCCESS != err)
         {
             APP_ERR_PRINT("\nCAN InfoGet API FAILED");
-            led_update (error);
             canfd_deinit ();
             APP_ERR_TRAP(err);
         }
@@ -268,7 +261,6 @@ void can_read_operation(void)
             if (FSP_SUCCESS != err)
             {
                 APP_ERR_PRINT("\nCAN Read API FAILED");
-                led_update (error);
                 canfd_deinit ();
                 APP_ERR_TRAP(err);
             }
@@ -293,7 +285,6 @@ void can_read_operation(void)
         if (FSP_SUCCESS != err)
         {
             APP_ERR_PRINT("\nCAN InfoGet API FAILED");
-            led_update (error);
             canfd_deinit ();
             APP_ERR_TRAP(err);
         }
@@ -307,7 +298,6 @@ void can_read_operation(void)
             if (FSP_SUCCESS != err)
             {
                 APP_ERR_PRINT("\nCAN Read API FAILED");
-                led_update (error);
                 canfd_deinit ();
                 APP_ERR_TRAP(err);
             }
@@ -328,7 +318,6 @@ void can_read_operation(void)
         /* Do Nothing */
     }
 
-    led_update(successful);
 }
 
 /*******************************************************************************************************************//**
@@ -347,82 +336,6 @@ static void can_fd_data_update(void)
     {
         rx_fd_data[j] = (uint8_t) (j + 5);
     }
-}
-
-/*******************************************************************************************************************//**
- * @brief This function updates led state as per operation status
- * @param[in]  led_state      Select LED states according to operations.
- * @retval     None
- **********************************************************************************************************************/
-void led_update(led_state_t led_state)
-{
-    switch(led_state)
-    {
-        case error:
-        {
-            /* PMOD LED will high to show error state */
-            R_IOPORT_PinWrite(&g_ioport_ctrl, (bsp_io_port_pin_t) g_leds.p_leds[LED_LED1], BSP_IO_LEVEL_HIGH);
-            R_IOPORT_PinWrite(&g_ioport_ctrl, (bsp_io_port_pin_t) g_leds.p_leds[LED_LED2], BSP_IO_LEVEL_HIGH);
-            R_IOPORT_PinWrite(&g_ioport_ctrl, (bsp_io_port_pin_t) g_leds.p_leds[LED_LED3], BSP_IO_LEVEL_HIGH);
-            R_IOPORT_PinWrite(&g_ioport_ctrl, (bsp_io_port_pin_t) g_leds.p_leds[LED_LED4], BSP_IO_LEVEL_HIGH);
-            break;
-        }
-        case successful:
-        {
-            /* Holds level to set for pins */
-            static bsp_io_level_t pin_level = BSP_IO_LEVEL_LOW;
-
-            /* Toggle level for next write */
-            if (BSP_IO_LEVEL_LOW == pin_level)
-            {
-                pin_level = BSP_IO_LEVEL_HIGH;
-            }
-            else
-            {
-                pin_level = BSP_IO_LEVEL_LOW;
-            }
-
-            /* PMOD LED will blink to show successful state */
-            R_IOPORT_PinWrite(&g_ioport_ctrl, (bsp_io_port_pin_t) g_leds.p_leds[LED_LED1], pin_level);
-            R_IOPORT_PinWrite(&g_ioport_ctrl, (bsp_io_port_pin_t) g_leds.p_leds[LED_LED2], pin_level);
-            R_IOPORT_PinWrite(&g_ioport_ctrl, (bsp_io_port_pin_t) g_leds.p_leds[LED_LED3], pin_level);
-            R_IOPORT_PinWrite(&g_ioport_ctrl, (bsp_io_port_pin_t) g_leds.p_leds[LED_LED4], pin_level);
-
-            /* Delay */
-            R_BSP_SoftwareDelay(WAIT_TIME, BSP_DELAY_UNITS_MILLISECONDS);
-
-            break;
-        }
-        case transmitting:
-        {
-            /* Set the LED pin state low */
-            R_IOPORT_PinWrite(&g_ioport_ctrl, (bsp_io_port_pin_t) g_leds.p_leds[LED_LED1], BSP_IO_LEVEL_LOW);
-            R_IOPORT_PinWrite(&g_ioport_ctrl, (bsp_io_port_pin_t) g_leds.p_leds[LED_LED2], BSP_IO_LEVEL_LOW);
-            R_IOPORT_PinWrite(&g_ioport_ctrl, (bsp_io_port_pin_t) g_leds.p_leds[LED_LED3], BSP_IO_LEVEL_LOW);
-            R_IOPORT_PinWrite(&g_ioport_ctrl, (bsp_io_port_pin_t) g_leds.p_leds[LED_LED4], BSP_IO_LEVEL_LOW);
-
-            for(int i = 0; i < 4; i ++)
-            {
-                R_IOPORT_PinWrite(&g_ioport_ctrl, (bsp_io_port_pin_t) g_leds.p_leds[i], BSP_IO_LEVEL_HIGH);
-                /* Delay */
-                R_BSP_SoftwareDelay(WAIT_TIME/10, BSP_DELAY_UNITS_MILLISECONDS);
-            }
-
-            for(int j = 0; j < 4; j ++)
-            {
-                R_IOPORT_PinWrite(&g_ioport_ctrl, (bsp_io_port_pin_t) g_leds.p_leds[j], BSP_IO_LEVEL_LOW);
-                /* Delay */
-                R_BSP_SoftwareDelay(WAIT_TIME/10, BSP_DELAY_UNITS_MILLISECONDS);
-            }
-
-            break;
-        }
-        default:
-        {
-            break;
-        }
-    }
-
 }
 
 /*******************************************************************************************************************//**
