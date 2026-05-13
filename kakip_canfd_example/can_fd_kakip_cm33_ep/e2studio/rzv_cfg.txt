@@ -481,12 +481,12 @@ FSP Configuration
       P77 AM24 - - - - Disabled - - "CANFD3: CRXDP3; DMAC1: TEND1; DMAC4: DREQ4; GPT6: GTIOC6B; GPT6: GTIOC6BN; IRQ: IRQ13; RSCI7: RXD7_MISO7_SCL7; SSIU5: SSI5_WS; SSIU6: SSI6_WS" - None - - 
       P80 AN23 CANFD0_CTX0 - X2 - "Peripheral mode" - - "CANFD0: CTX0; DMAC2: DACK2; GPT1: GTIOC1A; GPT1: GTIOC1AN; IRQ: IRQ2; RSCI4: CTS4N; RSCI4: DE4; RSCI4: SCK4; RSCI8: TXD8_MOSI8_SDA8; SPDIF0: SPDIF0_OUT; SSIU5: SSI5_WS" - I - - 
       P81 AP23 CANFD0_CRX0 - X2 - "Peripheral mode" - - "CANFD0: CRX0; DMAC2: TEND2; GPT1: GTIOC1B; GPT1: GTIOC1BN; IRQ: IRQ3; RSCI4: DE4; RSCI4: SS4_CTS4N_RTS4N; RSCI8: RXD8_MISO8_SCL8; SPDIF0: SPDIF0_IN; SSIU8: SSI8_SDATA" - I - - 
-      P82 AT23 CANFD1_CTX1 - X2 - "Peripheral mode" - - "CANFD1: CTX1; DMAC4: DACK4; GPT3: GTIOC3A; GPT3: GTIOC3AN; IRQ: IRQ6; RSCI5: CTS5N; RSCI5: DE5; RSCI5: SCK5; RSCI9: TXD9_MOSI9_SDA9; SPDIF2: SPDIF2_OUT; SSIU7: SSI7_WS" - I - - 
-      P83 AN24 CANFD1_CRX1 - X2 - "Peripheral mode" - - "CANFD1: CRX1; DMAC4: TEND4; GPT3: GTIOC3B; GPT3: GTIOC3BN; IRQ: IRQ7; RSCI5: DE5; RSCI5: SS5_CTS5N_RTS5N; RSCI9: RXD9_MISO9_SCL9; SPDIF2: SPDIF2_IN; SSIU7: SSI7_SDATA" - I - - 
+      P82 AT23 - - - - Disabled - - "CANFD1: CTX1; DMAC4: DACK4; GPT3: GTIOC3A; GPT3: GTIOC3AN; IRQ: IRQ6; RSCI5: CTS5N; RSCI5: DE5; RSCI5: SCK5; RSCI9: TXD9_MOSI9_SDA9; SPDIF2: SPDIF2_OUT; SSIU7: SSI7_WS" - None - - 
+      P83 AN24 - - - - Disabled - - "CANFD1: CRX1; DMAC4: TEND4; GPT3: GTIOC3B; GPT3: GTIOC3BN; IRQ: IRQ7; RSCI5: DE5; RSCI5: SS5_CTS5N_RTS5N; RSCI9: RXD9_MISO9_SCL9; SPDIF2: SPDIF2_IN; SSIU7: SSI7_SDATA" - None - - 
       P84 AR24 - - - - Disabled - - "CANFD2: CTX2; GPT5: GTIOC5A; GPT5: GTIOC5AN; IRQ: IRQ10; RSCI4: TXD4_MOSI4_SDA4; RSCI6: CTS6N; RSCI6: DE6; RSCI6: SCK6; SSIU3: SSI3_SDATA; USB20: USB20_VBUSEN; USB30: USB30_VBUSEN" - None - - 
       P85 AP24 - - - - Disabled - - "CANFD2: CRX2; GPT5: GTIOC5B; GPT5: GTIOC5BN; IRQ: IRQ11; RSCI4: RXD4_MISO4_SCL4; RSCI6: DE6; RSCI6: SS6_CTS6N_RTS6N; SSIU4: SSI4_SDATA; USB20: USB20_OVRCURN; USB30: USB30_OVRCURN" - None - - 
-      P86 AU23 - - - - Disabled - - "CANFD3: CTX3; GPT7: GTIOC7A; GPT7: GTIOC7AN; IRQ: IRQ14; RSCI5: TXD5_MOSI5_SDA5; RSCI7: CTS7N; RSCI7: DE7; RSCI7: SCK7; SSIU5: SSI5_SDATA; USB21: USB21_VBUSEN; USB31: USB31_VBUSEN" - None - - 
-      P87 AR23 - - - - Disabled - - "CANFD3: CRX3; GPT7: GTIOC7B; GPT7: GTIOC7BN; IRQ: IRQ15; RSCI5: RXD5_MISO5_SCL5; RSCI7: DE7; RSCI7: SS7_CTS7N_RTS7N; SSIU6: SSI6_SDATA; USB21: USB21_OVRCURN; USB31: USB31_OVRCURN" - None - - 
+      P86 AU23 CANFD3_CTX3 - X2 - "Peripheral mode" - - "CANFD3: CTX3; GPT7: GTIOC7A; GPT7: GTIOC7AN; IRQ: IRQ14; RSCI5: TXD5_MOSI5_SDA5; RSCI7: CTS7N; RSCI7: DE7; RSCI7: SCK7; SSIU5: SSI5_SDATA; USB21: USB21_VBUSEN; USB31: USB31_VBUSEN" - I - - 
+      P87 AR23 CANFD3_CRX3 - X2 - "Peripheral mode" - - "CANFD3: CRX3; GPT7: GTIOC7B; GPT7: GTIOC7BN; IRQ: IRQ15; RSCI5: RXD5_MISO5_SCL5; RSCI7: DE7; RSCI7: SS7_CTS7N_RTS7N; SSIU6: SSI6_SDATA; USB21: USB21_OVRCURN; USB31: USB31_OVRCURN" - I - - 
       P90 AP30 - - - - Disabled - - "IRQ: IRQ0; RSCI6: TXD6_MOSI6_SDA6; RSPI0: MOSIA" - None - - 
       P91 AM31 - - - - Disabled - - "IRQ: IRQ1; RSCI6: RXD6_MISO6_SCL6; RSPI0: MISOA" - None - - 
       P92 AN30 - - - - Disabled - - "IRQ: IRQ2; RSCI0: TXD0_MOSI0_SDA0; RSCI6: CTS6N; RSCI6: DE6; RSCI6: SCK6; RSPI0: RSPCKA" - None - - 
@@ -1842,12 +1842,12 @@ FSP Configuration
       P77 AM24 - - - - Disabled - - "CANFD3: CRXDP3; DMAC1: TEND1; DMAC4: DREQ4; GPT6: GTIOC6B; GPT6: GTIOC6BN; IRQ: IRQ13; RSCI7: RXD7_MISO7_SCL7; SSIU5: SSI5_WS; SSIU6: SSI6_WS" - None - - 
       P80 AN23 - - X2 - Disabled - - "CANFD0: CTX0; DMAC2: DACK2; GPT1: GTIOC1A; GPT1: GTIOC1AN; IRQ: IRQ2; RSCI4: CTS4N; RSCI4: DE4; RSCI4: SCK4; RSCI8: TXD8_MOSI8_SDA8; SPDIF0: SPDIF0_OUT; SSIU5: SSI5_WS" - I - - 
       P81 AP23 - - X2 - Disabled - - "CANFD0: CRX0; DMAC2: TEND2; GPT1: GTIOC1B; GPT1: GTIOC1BN; IRQ: IRQ3; RSCI4: DE4; RSCI4: SS4_CTS4N_RTS4N; RSCI8: RXD8_MISO8_SCL8; SPDIF0: SPDIF0_IN; SSIU8: SSI8_SDATA" - I - - 
-      P82 AT23 - - X2 - Disabled - - "CANFD1: CTX1; DMAC4: DACK4; GPT3: GTIOC3A; GPT3: GTIOC3AN; IRQ: IRQ6; RSCI5: CTS5N; RSCI5: DE5; RSCI5: SCK5; RSCI9: TXD9_MOSI9_SDA9; SPDIF2: SPDIF2_OUT; SSIU7: SSI7_WS" - I - - 
-      P83 AN24 - - X2 - Disabled - - "CANFD1: CRX1; DMAC4: TEND4; GPT3: GTIOC3B; GPT3: GTIOC3BN; IRQ: IRQ7; RSCI5: DE5; RSCI5: SS5_CTS5N_RTS5N; RSCI9: RXD9_MISO9_SCL9; SPDIF2: SPDIF2_IN; SSIU7: SSI7_SDATA" - I - - 
+      P82 AT23 - - - - Disabled - - "CANFD1: CTX1; DMAC4: DACK4; GPT3: GTIOC3A; GPT3: GTIOC3AN; IRQ: IRQ6; RSCI5: CTS5N; RSCI5: DE5; RSCI5: SCK5; RSCI9: TXD9_MOSI9_SDA9; SPDIF2: SPDIF2_OUT; SSIU7: SSI7_WS" - None - - 
+      P83 AN24 - - - - Disabled - - "CANFD1: CRX1; DMAC4: TEND4; GPT3: GTIOC3B; GPT3: GTIOC3BN; IRQ: IRQ7; RSCI5: DE5; RSCI5: SS5_CTS5N_RTS5N; RSCI9: RXD9_MISO9_SCL9; SPDIF2: SPDIF2_IN; SSIU7: SSI7_SDATA" - None - - 
       P84 AR24 - - - - Disabled - - "CANFD2: CTX2; GPT5: GTIOC5A; GPT5: GTIOC5AN; IRQ: IRQ10; RSCI4: TXD4_MOSI4_SDA4; RSCI6: CTS6N; RSCI6: DE6; RSCI6: SCK6; SSIU3: SSI3_SDATA; USB20: USB20_VBUSEN; USB30: USB30_VBUSEN" - None - - 
       P85 AP24 - - - - Disabled - - "CANFD2: CRX2; GPT5: GTIOC5B; GPT5: GTIOC5BN; IRQ: IRQ11; RSCI4: RXD4_MISO4_SCL4; RSCI6: DE6; RSCI6: SS6_CTS6N_RTS6N; SSIU4: SSI4_SDATA; USB20: USB20_OVRCURN; USB30: USB30_OVRCURN" - None - - 
-      P86 AU23 - - - - Disabled - - "CANFD3: CTX3; GPT7: GTIOC7A; GPT7: GTIOC7AN; IRQ: IRQ14; RSCI5: TXD5_MOSI5_SDA5; RSCI7: CTS7N; RSCI7: DE7; RSCI7: SCK7; SSIU5: SSI5_SDATA; USB21: USB21_VBUSEN; USB31: USB31_VBUSEN" - None - - 
-      P87 AR23 - - - - Disabled - - "CANFD3: CRX3; GPT7: GTIOC7B; GPT7: GTIOC7BN; IRQ: IRQ15; RSCI5: RXD5_MISO5_SCL5; RSCI7: DE7; RSCI7: SS7_CTS7N_RTS7N; SSIU6: SSI6_SDATA; USB21: USB21_OVRCURN; USB31: USB31_OVRCURN" - None - - 
+      P86 AU23 - - X2 - Disabled - - "CANFD3: CTX3; GPT7: GTIOC7A; GPT7: GTIOC7AN; IRQ: IRQ14; RSCI5: TXD5_MOSI5_SDA5; RSCI7: CTS7N; RSCI7: DE7; RSCI7: SCK7; SSIU5: SSI5_SDATA; USB21: USB21_VBUSEN; USB31: USB31_VBUSEN" - I - - 
+      P87 AR23 - - X2 - Disabled - - "CANFD3: CRX3; GPT7: GTIOC7B; GPT7: GTIOC7BN; IRQ: IRQ15; RSCI5: RXD5_MISO5_SCL5; RSCI7: DE7; RSCI7: SS7_CTS7N_RTS7N; SSIU6: SSI6_SDATA; USB21: USB21_OVRCURN; USB31: USB31_OVRCURN" - I - - 
       P90 AP30 - - - - Disabled - - "IRQ: IRQ0; RSCI6: TXD6_MOSI6_SDA6; RSPI0: MOSIA" - None - - 
       P91 AM31 - - - - Disabled - - "IRQ: IRQ1; RSCI6: RXD6_MISO6_SCL6; RSPI0: MISOA" - None - - 
       P92 AN30 - - - - Disabled - - "IRQ: IRQ2; RSCI0: TXD0_MOSI0_SDA0; RSCI6: CTS6N; RSCI6: DE6; RSCI6: SCK6; RSPI0: RSPCKA" - None - - 
@@ -2819,7 +2819,7 @@ FSP Configuration
     
   Module "CANFD Driver on r_canfd"
     Parameter Checking: Default (BSP)
-    Global Error Interrupt: Callback Channel: Channel 1
+    Global Error Interrupt: Callback Channel: Channel 3
     Global Error Interrupt: Priority: 2
     Reception: FIFOs: Interrupt Priority: 12
     Flexible Data (FD): Protocol Exceptions: Enabled (ISO 11898-1)
@@ -3088,9 +3088,9 @@ FSP Configuration
     Common FIFOs: FIFO 17: Interval Timer: Reference clock
     Common FIFOs: FIFO 17: Interval Timer Reference Clock Resolution: x1
     Reception: Acceptance Filtering: Channel 0 Rule Count: 64
-    Reception: Acceptance Filtering: Channel 1 Rule Count: 64
+    Reception: Acceptance Filtering: Channel 1 Rule Count: 0
     Reception: Acceptance Filtering: Channel 2 Rule Count: 0
-    Reception: Acceptance Filtering: Channel 3 Rule Count: 0
+    Reception: Acceptance Filtering: Channel 3 Rule Count: 64
     Reception: Acceptance Filtering: Channel 4 Rule Count: 0
     Reception: Acceptance Filtering: Channel 5 Rule Count: 0
     
@@ -3229,9 +3229,9 @@ FSP Configuration
       TX Buffer Merge Mode: Disable(Not Supported)
       Filter List Array: p_canfd_ch0_afl
       
-    Instance "g_canfd_ch1 CANFD Driver on r_canfd"
-      General: Name: g_canfd_ch1
-      General: Channel: 1
+    Instance "g_canfd_ch3 CANFD Driver on r_canfd"
+      General: Name: g_canfd_ch3
+      General: Channel: 3
       Bitrate: Automatic: Clock source frequency (Set 0 if PCLK use): 0
       Bitrate: Automatic: Nominal Rate (bps): 500000
       Bitrate: Automatic: Data Rate (bps): 2000000
@@ -3246,12 +3246,12 @@ FSP Configuration
       Bitrate: Manual: Data: Time Segment 2 (Tq): 8
       Bitrate: Manual: Data: Sync Jump Width (Tq): 1
       Bitrate: Manual: Use manual settings: Yes
-      Interrupts: Callback: canfd_ch1_callback
+      Interrupts: Callback: canfd_ch3_callback
       Transmit Interrupts: TXMB 0
       Channel Error Interrupts: Error Warning, Error Passive, Bus-Off Entry, Bus-Off Recovery, Overload
       Interrupts: Channel Interrupt Priority Level: 12
       TX Buffer Merge Mode: Disable(Not Supported)
-      Filter List Array: p_canfd_ch1_afl
+      Filter List Array: p_canfd_ch3_afl
       
     Instance "g_uart UART (r_sci_b_uart)"
       General: Name: g_uart
