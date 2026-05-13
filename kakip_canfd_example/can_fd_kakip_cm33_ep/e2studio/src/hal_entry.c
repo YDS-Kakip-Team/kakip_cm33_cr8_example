@@ -116,6 +116,12 @@ void hal_entry (void)
     fsp_pack_version_t version = {RESET_VALUE};
     unsigned char rtt_input_buf[BUFFER_SIZE_DOWN] = {NULL_CHAR};
 
+    /* Initialize UART console */
+    err = console_init();
+    if (FSP_SUCCESS != err)
+    {
+        while (1) { /* UART init failed, halt */ }
+    }
 
     /* version get API for FLEX pack information */
     R_FSP_VersionGet(&version);
