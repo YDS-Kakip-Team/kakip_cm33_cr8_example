@@ -45,8 +45,11 @@
 /* Data to be loaded in Classic CAN and FD frames for transmission and acknowledgement */
 uint8_t tx_data[SIZE_64] = "TX_MESG";
 uint8_t rx_data[SIZE_64] = "RX_MESG";
-uint8_t tx_fd_data[SIZE_64];
-uint8_t rx_fd_data[SIZE_64];
+
+/* State machine for CAN cycle:
+ * 0 = idle, 1 = waiting ch3 classic RX, 2 = waiting ch0 classic ACK RX,
+ * 3 = waiting ch3 FD RX, 4 = waiting ch0 FD ACK RX */
+static volatile uint8_t g_can_state = 0;
 
 extern bool b_canfd_ch0_tx_complete ;
 extern bool b_canfd_ch0_rx_complete ;
@@ -59,7 +62,6 @@ extern uint32_t g_time_out;
 
 /* User defined functions */
 static void can_write_operation(canfd_instance_ctrl_t p_api_ctrl, can_frame_t can_transmit_frame);
-static void can_fd_data_update(void);
 static void can_data_check_operation(void);
 
 
@@ -90,6 +92,7 @@ void canfd_operation(uint8_t *data, uint32_t len)
     /* Transmission of data over classic CAN frame */
     can_write_operation(g_canfd_ch0_ctrl, g_canfd_ch0_tx_frame);
 
+    g_can_state = 1;
     APP_PRINT("[1] TX Classic CAN -> CH3: \"%.*s\" (%d bytes)\n",
               CAN_CLASSIC_FRAME_DATA_BYTES, (char*)g_canfd_ch0_tx_frame.data, CAN_CLASSIC_FRAME_DATA_BYTES);
 }
@@ -144,10 +147,7 @@ static void can_write_operation(canfd_instance_ctrl_t p_api_ctrl, can_frame_t ca
  **********************************************************************************************************************/
 static void can_data_check_operation(void)
 {
-    /*Update data to be compared with data transmitted/received over FD frame */
-    can_fd_data_update();
-
-    if(RESET_VALUE == strncmp((char*)&g_canfd_ch3_rx_frame.data[ZERO], (char*)&tx_data[ZERO], CAN_CLASSIC_FRAME_DATA_BYTES))
+    if (1 == g_can_state) /* ch3 received classic from ch0, send classic ACK */
     {
         /* Cleaning receive frame */
         memset(&g_canfd_ch3_rx_frame.data[ZERO], NULL_CHAR, CAN_CLASSIC_FRAME_DATA_BYTES);
@@ -166,9 +166,9 @@ static void can_data_check_operation(void)
         /* Transmission of data as acknowledgement */
         can_write_operation(g_canfd_ch3_ctrl, g_canfd_ch3_tx_frame);
 
-
+        g_can_state = 2;
     }
-    else if(RESET_VALUE == strncmp((char*)&g_canfd_ch0_rx_frame.data[ZERO], (char*)&rx_data[ZERO], CAN_CLASSIC_FRAME_DATA_BYTES))
+    else if (2 == g_can_state) /* ch0 received classic ACK, send FD */
     {
         APP_PRINT("[2] RX Classic ACK <- CH3: \"%.*s\" (%d bytes)\n",
                   CAN_CLASSIC_FRAME_DATA_BYTES, (char*)g_canfd_ch0_rx_frame.data, g_canfd_ch0_rx_frame.data_length_code);
@@ -183,10 +183,8 @@ static void can_data_check_operation(void)
         g_canfd_ch0_tx_frame.options = CANFD_FRAME_OPTION_FD | CANFD_FRAME_OPTION_BRS;
 
         /* Fill frame data that is to be sent in FD frame */
-        for( uint16_t j = 0; j < SIZE_64; j++)
-        {
-            g_canfd_ch0_tx_frame.data[j] = (uint8_t) (j + 1);
-        }
+        memset(g_canfd_ch0_tx_frame.data, 0, SIZE_64);
+        memcpy(g_canfd_ch0_tx_frame.data, tx_data, CAN_FD_DATA_LENGTH_CODE);
 
         /* Transmission of data as over FD frame */
         can_write_operation(g_canfd_ch0_ctrl, g_canfd_ch0_tx_frame);
@@ -194,12 +192,12 @@ static void can_data_check_operation(void)
         APP_PRINT("[3] TX CAN FD -> CH3: \"%.*s\" (%d bytes)\n",
                   CAN_FD_DATA_LENGTH_CODE, (char*)g_canfd_ch0_tx_frame.data, CAN_FD_DATA_LENGTH_CODE);
 
+        g_can_state = 3;
     }
-    else if(RESET_VALUE == strncmp((char*)&g_canfd_ch3_rx_frame.data[ZERO], (char*)&tx_fd_data[ZERO], CAN_FD_DATA_LENGTH_CODE)) // acknowledging for second transmission
+    else if (3 == g_can_state) /* ch3 received FD, send FD ACK */
     {
         /* Cleaning receive frame */
         memset(&g_canfd_ch3_rx_frame.data[ZERO], NULL_CHAR, CAN_FD_DATA_LENGTH_CODE);
-
 
         /* Updating FD frame parameters for channel 1*/
         g_canfd_ch3_tx_frame.id = CAN_ID;
@@ -208,17 +206,15 @@ static void can_data_check_operation(void)
         g_canfd_ch3_tx_frame.options = CANFD_FRAME_OPTION_FD | CANFD_FRAME_OPTION_BRS;
 
         /* Fill frame data that is to be sent in FD frame */
-        for( uint16_t j = 0; j < SIZE_64; j++)
-        {
-            g_canfd_ch3_tx_frame.data[j] = (uint8_t) (j + 5);
-        }
+        memset(g_canfd_ch3_tx_frame.data, 0, SIZE_64);
+        memcpy(g_canfd_ch3_tx_frame.data, rx_data, CAN_FD_DATA_LENGTH_CODE);
 
         /* Transmission of data as acknowledgement */
         can_write_operation(g_canfd_ch3_ctrl, g_canfd_ch3_tx_frame);
 
-
+        g_can_state = 4;
     }
-    else if(RESET_VALUE == strncmp((char*)&g_canfd_ch0_rx_frame.data[ZERO], (char*)&rx_fd_data[ZERO], CAN_FD_DATA_LENGTH_CODE)) // acknowledgement for second transmission
+    else if (4 == g_can_state) /* ch0 received FD ACK, cycle complete */
     {
         APP_PRINT("[4] RX CAN FD ACK <- CH3: \"%.*s\" (%d bytes)\n",
                   CAN_FD_DATA_LENGTH_CODE, (char*)g_canfd_ch0_rx_frame.data, g_canfd_ch0_rx_frame.data_length_code);
@@ -227,10 +223,12 @@ static void can_data_check_operation(void)
 
         /* Cleaning receive frame */
         memset(&g_canfd_ch0_rx_frame.data[ZERO], NULL_CHAR, CAN_FD_DATA_LENGTH_CODE);
+
+        g_can_state = 0;
     }
-    else /* Wrong MSG Received */
+    else
     {
-        APP_ERR_PRINT("\nCAN data mismatch\r\nCAN operation failed");
+        APP_ERR_PRINT("\nCAN unexpected state %d", g_can_state);
         APP_ERR_TRAP(true);
     }
 }
@@ -321,24 +319,6 @@ void can_read_operation(void)
         /* Do Nothing */
     }
 
-}
-
-/*******************************************************************************************************************//**
- * @brief       This function is to update data buffer that is to be compared with transmitted FD frame data
- * @param[in]   None
- * @return      None
- **********************************************************************************************************************/
-static void can_fd_data_update(void)
-{
-    /* Fill frame data to be compared with data transmitted on CANFD frame*/
-    for( uint16_t i = 0; i < SIZE_64; i++)
-    {
-        tx_fd_data[i]          = (uint8_t) (i + 1);
-    }
-    for(uint16_t j = 0; j < SIZE_64; j++)
-    {
-        rx_fd_data[j] = (uint8_t) (j + 5);
-    }
 }
 
 /*******************************************************************************************************************//**
