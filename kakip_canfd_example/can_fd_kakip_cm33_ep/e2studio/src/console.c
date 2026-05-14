@@ -15,7 +15,7 @@
 
 #include <stdbool.h>
 
-#define CONSOLE_BUF_SIZE  (256u)
+#define CONSOLE_BUF_SIZE  (1024u)
 #define CONSOLE_TIMEOUT   (UINT32_MAX)
 #define RESET_VALUE       (0u)
 
