@@ -2829,7 +2829,7 @@ FSP Configuration
     Clock Source: CANFD_0_clkc
     Flexible Data (FD): Payload Overflow: Reject
     Reception: Message Buffers: Number of Buffers: 1
-    Reception: Message Buffers: Payload Size: 16 bytes
+    Reception: Message Buffers: Payload Size: 64 bytes
     Interval Timer Prescaler: 0
     Reception: FIFOs: FIFO 0: Enable: Enabled
     Reception: FIFOs: FIFO 0: Interrupt Mode: Every Frame
