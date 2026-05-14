@@ -114,7 +114,8 @@ void hal_entry (void)
 
     fsp_err_t err = FSP_SUCCESS;
     fsp_pack_version_t version = {RESET_VALUE};
-    unsigned char rtt_input_buf[BUFFER_SIZE_DOWN] = {NULL_CHAR};
+    uint8_t input_buf[CAN_FD_DATA_LENGTH_CODE + 1] = {NULL_CHAR};
+    uint32_t input_len = 0;
 
     /* Initialize UART console */
     err = console_init();
@@ -153,17 +154,34 @@ void hal_entry (void)
         APP_ERR_TRAP(err);
     }
 
-    APP_PRINT("\nPlease enter any key on Terminal Emulator to initiate CAN transmission.\n");
+    APP_PRINT("\nEnter message to send: ");
 
     while(1)
     {
         /* Check for user input */
         if (APP_CHECK_DATA)
         {
-            APP_READ(rtt_input_buf);
-            APP_PRINT("\nUser input: %s" , (char *)rtt_input_buf);
-            /* Update transmit frame and initiate transmission on CAN frame */
-            canfd_operation();
+            uint8_t tmp[16];
+            uint32_t n = console_read(tmp, sizeof(tmp));
+            for (uint32_t i = 0; i < n; i++)
+            {
+                if (tmp[i] == '\r' || tmp[i] == '\n')
+                {
+                    if (input_len > 0)
+                    {
+                        APP_PRINT("\n");
+                        input_buf[input_len] = '\0';
+                        canfd_operation(input_buf, input_len);
+                        input_len = 0;
+                        memset(input_buf, 0, sizeof(input_buf));
+                    }
+                }
+                else if (input_len < CAN_FD_DATA_LENGTH_CODE)
+                {
+                    input_buf[input_len++] = tmp[i];
+                    APP_PRINT("%c", tmp[i]);  /* echo */
+                }
+            }
         }
 
         /* Get the status of transmitted frame and read the data */

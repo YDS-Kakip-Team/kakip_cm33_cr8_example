@@ -23,10 +23,10 @@
 #define ZERO                            (0U)               //Array Index value
 #define NULL_CHAR                       ('\0')             //MACRO for null character
 #define WAIT_TIME                       (500000U)             //Wait time value
-#define EP_INFO                        "\nCAN FD Example: Press any key to start CAN transmission."\
+#define EP_INFO                        "\nCAN FD Example: Type a message and press Enter to send."\
                                        "\nCH0 <-> CH3: Classic CAN (up to 8B) + CAN FD (up to 64B).\n"
 
-void canfd_operation(void);
+void canfd_operation(uint8_t *data, uint32_t len);
 void can_read_operation(void);
 void canfd_deinit(void);
 
