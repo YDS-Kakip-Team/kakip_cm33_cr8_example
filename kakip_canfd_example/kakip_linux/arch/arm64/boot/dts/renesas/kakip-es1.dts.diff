@@ -1,0 +1,57 @@
+diff --git a/arch/arm64/boot/dts/renesas/kakip-es1.dts b/arch/arm64/boot/dts/renesas/kakip-es1.dts
+index d62fa4fe2..5a051c5f5 100644
+--- a/arch/arm64/boot/dts/renesas/kakip-es1.dts
++++ b/arch/arm64/boot/dts/renesas/kakip-es1.dts
+@@ -194,25 +194,11 @@ can0_pins: can0 {
+ 			 <RZG2L_PORT_PINMUX(8, 1, 5)>; /* RX */
+ 	};
+ 
+-	can0_stb {
+-		gpio-hog;
+-		gpios = <RZG2L_GPIO(10, 2) GPIO_ACTIVE_LOW>;
+-		output-high;
+-		line-name = "can0_stb";
+-	};
+-
+ 	can3_pins: can3 {
+ 		pinmux = <RZG2L_PORT_PINMUX(8, 6, 5)>, /* TX */
+ 			 <RZG2L_PORT_PINMUX(8, 7, 5)>; /* RX */
+ 	};
+ 
+-	can3_stb {
+-		gpio-hog;
+-		gpios = <RZG2L_GPIO(10, 3) GPIO_ACTIVE_LOW>;
+-		output-high;
+-		line-name = "can3_stb";
+-	};
+-
+ 	scif0_pins: scif0 {
+ 		pins =  "SCIF_RXD", "SCIF_TXD";
+ 	};
+@@ -306,7 +292,7 @@ &scif0 {
+ &sci5 {
+ 	pinctrl-0 = <&sci5_pins>;
+ 	pinctrl-names = "default";
+-	status = "okay";
++	status = "disabled";
+ };
+ 
+ &sdhi0 {
+@@ -576,14 +562,14 @@ &usb2_phy1 {
+ &canfd {
+ 	pinctrl-0 = <&can0_pins &can3_pins>;
+ 	pinctrl-names = "default";
+-	status = "okay";
++	status = "disabled";
+ 
+ 	channel0 {
+-		status = "okay";
++		status = "disabled";
+ 	};
+ 
+ 	channel3 {
+-		status = "okay";
++		status = "disabled";
+ 	};
+ };
+ 
