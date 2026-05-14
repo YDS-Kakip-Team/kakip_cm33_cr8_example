@@ -15,6 +15,8 @@
 
 fsp_err_t console_init(void);
 void console_print(const char *fmt, ...);
+bool console_has_data(void);
+uint32_t console_read(uint8_t *buf, uint32_t len);
 void console_deinit(void);
 
 #endif /* CONSOLE_H_ */
