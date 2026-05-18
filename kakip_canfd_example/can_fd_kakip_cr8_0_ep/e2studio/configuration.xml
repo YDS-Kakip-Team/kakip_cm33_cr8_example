@@ -670,14 +670,6 @@
       <configSetting altId="canfd3.mode.custom.free" configurationId="canfd3.mode"/>
       <configSetting altId="p00.input" configurationId="p00"/>
       <configSetting altId="p00.gpio_mode.gpio_mode_in" configurationId="p00.gpio_mode"/>
-      <configSetting altId="p50.output.low" configurationId="p50"/>
-      <configSetting altId="p50.gpio_mode.gpio_mode_out.low" configurationId="p50.gpio_mode"/>
-      <configSetting altId="p51.output.low" configurationId="p51"/>
-      <configSetting altId="p51.gpio_mode.gpio_mode_out.low" configurationId="p51.gpio_mode"/>
-      <configSetting altId="p52.output.low" configurationId="p52"/>
-      <configSetting altId="p52.gpio_mode.gpio_mode_out.low" configurationId="p52.gpio_mode"/>
-      <configSetting altId="p53.output.low" configurationId="p53"/>
-      <configSetting altId="p53.gpio_mode.gpio_mode_out.low" configurationId="p53.gpio_mode"/>
       <configSetting altId="p72.rsci5.txd5_mosi5_sda5" configurationId="p72"/>
       <configSetting altId="p72.gpio_mode.gpio_mode_peripheral" configurationId="p72.gpio_mode"/>
       <configSetting altId="p73.rsci5.rxd5_miso5_scl5" configurationId="p73"/>
