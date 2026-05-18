@@ -51,6 +51,7 @@ fsp_err_t console_init(void)
 void console_print(const char *fmt, ...)
 {
     char buf[CONSOLE_BUF_SIZE];
+    char out[CONSOLE_BUF_SIZE * 2];
     va_list args;
     uint64_t timeout;
 
@@ -58,14 +59,26 @@ void console_print(const char *fmt, ...)
     vsnprintf(buf, sizeof(buf), fmt, args);
     va_end(args);
 
-    uint8_t len = (uint8_t)strlen(buf);
+    /* Convert \n to \r\n for serial terminal */
+    uint16_t j = 0;
+    for (uint16_t i = 0; buf[i] != '\0' && j < (sizeof(out) - 2); i++)
+    {
+        if (buf[i] == '\n' && (i == 0 || buf[i - 1] != '\r'))
+        {
+            out[j++] = '\r';
+        }
+        out[j++] = buf[i];
+    }
+    out[j] = '\0';
+
+    uint16_t len = j;
     if (len == 0)
     {
         return;
     }
 
     g_uart_event = RESET_VALUE;
-    fsp_err_t err = R_SCI_B_UART_Write(&g_uart_ctrl, (uint8_t *)buf, len);
+    fsp_err_t err = R_SCI_B_UART_Write(&g_uart_ctrl, (uint8_t *)out, len);
     if (FSP_SUCCESS != err)
     {
         return;
