@@ -22,7 +22,7 @@
 #define BUFFER_SIZE_UP                  (2048)
 #define ZERO                            (0U)               //Array Index value
 #define NULL_CHAR                       ('\0')             //MACRO for null character
-#define WAIT_TIME                       (500U)             //Wait time value
+#define WAIT_TIME                       (500000U)             //Wait time value
 #define EP_INFO                        "\n This Example Project demonstrates CAN FD operations on Renesas RZ MCUs using 1 RZ/V board."\
                                        "\nOn pressing any key on the Terminal Emulator, data is transmitted from one channel to other."\
                                        "\nOn 1st transmission, Channel 0 transmits data to Channel 3. Channel 3 displays the received data."\
