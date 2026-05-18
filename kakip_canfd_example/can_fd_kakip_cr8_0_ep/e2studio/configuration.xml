@@ -394,7 +394,7 @@
       <property id="config.driver.canfd.clock_source" value="config.driver.canfd.clock_source.canfd_pclk"/>
       <property id="config.driver.canfd.fd.overflow" value="config.driver.canfd.fd.overflow.reject"/>
       <property id="config.driver.canfd.rxmb.number" value="1"/>
-      <property id="config.driver.canfd.rxmb.size" value="config.driver.canfd.rxmb.size.16"/>
+      <property id="config.driver.canfd.rxmb.size" value="config.driver.canfd.rxmb.size.64"/>
       <property id="config.driver.canfd.int_timer_prescaler" value="0"/>
       <property id="config.driver.canfd.rxfifo.0.enable" value="config.driver.canfd.rxfifo.0.enable.enabled"/>
       <property id="config.driver.canfd.rxfifo.0.int_mode" value="enum.driver.canfd.fifo.int_mode.every_frame"/>
