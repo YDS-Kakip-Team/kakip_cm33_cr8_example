@@ -32,8 +32,8 @@ static void led_pin_initialisation(void);
 bool b_canfd_ch0_tx_complete = false;
 bool b_canfd_ch0_rx_complete = false;
 
-bool b_canfd_ch1_tx_complete = false;
-bool b_canfd_ch1_rx_complete = false;
+bool b_canfd_ch3_tx_complete = false;
+bool b_canfd_ch3_rx_complete = false;
 
 bool b_canfd_err_status = false;
 
@@ -72,7 +72,7 @@ const canfd_afl_entry_t p_canfd_ch0_afl[CANFD_CFG_AFL_CH0_RULE_NUM] =
  },
 };
 
-const canfd_afl_entry_t p_canfd_ch1_afl[CANFD_CFG_AFL_CH1_RULE_NUM] =
+const canfd_afl_entry_t p_canfd_ch3_afl[CANFD_CFG_AFL_CH3_RULE_NUM] =
 {
  { /* Accept all messages with Extended ID 0x1000-0x1FFF */
    .id =
@@ -145,7 +145,7 @@ void hal_entry (void)
         APP_ERR_TRAP(err);
     }
 
-    err = R_CANFD_Open(&g_canfd_ch1_ctrl, &g_canfd_ch1_cfg);
+    err = R_CANFD_Open(&g_canfd_ch3_ctrl, &g_canfd_ch3_cfg);
     /* Error trap */
     if(FSP_SUCCESS != err)
     {
