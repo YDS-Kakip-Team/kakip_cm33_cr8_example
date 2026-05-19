@@ -12,7 +12,7 @@
 
 #define CAN_MAILBOX_NUMBER_0            (0U)               //mail box number
 #define CAN_CLASSIC_FRAME_DATA_BYTES    (8U)               //Data Length code for classic frame
-#define CAN_FD_DATA_LENGTH_CODE         (16)               //Data Length code for FD frame
+#define CAN_FD_DATA_LENGTH_CODE         (64)               //Data Length code for FD frame
 #define CAN_ID                          (0x1100)           //ID to be updated in transmit frame
 /* Acceptance filter array parameters */
 #define CANFD_FILTER_ID                 (0x00001000)
