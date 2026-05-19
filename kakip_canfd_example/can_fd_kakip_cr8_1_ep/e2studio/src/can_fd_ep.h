@@ -23,14 +23,8 @@
 #define ZERO                            (0U)               //Array Index value
 #define NULL_CHAR                       ('\0')             //MACRO for null character
 #define WAIT_TIME                       (500000U)             //Wait time value
-#define EP_INFO                        "\n This Example Project demonstrates CAN FD operations on Renesas RZ MCUs using 1 RZ/V board."\
-                                       "\nOn pressing any key on the Terminal Emulator, data is transmitted from one channel to other."\
-                                       "\nOn 1st transmission, Channel 0 transmits data to Channel 3. Channel 3 displays the received data."\
-                                       "\nOn 2nd transmission, Channel 3 transmits updated data to Channel 0 as ACK. Channel 0 displays the received data,"\
-                                       "\nthen Channel 0 changes CAN frame to CANFD frame and updates data."\
-                                       "\nOn 3rd transmission, Channel 0 transmits updated data to Channel 3. Channel 3 displays the received data,"\
-                                       "\nthen Channel 3 changes CAN frame to CANFD frame and updates data to transmits back to Channel 0 as ACK."\
-                                       "\nOn 4th transmission, Channel 3 transmits updated data to Channel 0 as ACK. Channel 0 displays the received data.\n"
+#define EP_INFO                        "\nCAN FD Example: Press any key to start CAN transmission."\
+                                       "\nCH0 <-> CH3: Classic CAN (up to 8B) + CAN FD (up to 64B).\n"
 
 void canfd_operation(void);
 void can_read_operation(void);
