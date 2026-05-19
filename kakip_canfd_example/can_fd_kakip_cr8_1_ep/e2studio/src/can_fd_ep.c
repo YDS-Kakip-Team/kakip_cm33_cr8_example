@@ -68,8 +68,15 @@ static void can_data_check_operation(void);
  * @param[in]   None
  * @return      None
  **********************************************************************************************************************/
-void canfd_operation(void)
+void canfd_operation(uint8_t *data, uint32_t len)
 {
+    /* Copy user input to tx_data and rx_data as payload */
+    memset(tx_data, 0, SIZE_64);
+    memset(rx_data, 0, SIZE_64);
+    uint32_t copy_len = (len < CAN_FD_DATA_LENGTH_CODE) ? len : CAN_FD_DATA_LENGTH_CODE;
+    memcpy(tx_data, data, copy_len);
+    memcpy(rx_data, data, copy_len);
+
     /* Update transmit frame parameters */
     g_canfd_ch0_tx_frame.id = CAN_ID;
     g_canfd_ch0_tx_frame.id_mode = CAN_ID_MODE_EXTENDED;
@@ -83,7 +90,8 @@ void canfd_operation(void)
     /* Transmission of data over classic CAN frame */
     can_write_operation(g_canfd_ch0_ctrl, g_canfd_ch0_tx_frame);
 
-    APP_PRINT("[1] TX Classic CAN -> CH3 (%d bytes)\n", CAN_CLASSIC_FRAME_DATA_BYTES);
+    APP_PRINT("[1] TX Classic CAN -> CH3: \"%.*s\" (%d bytes)\n",
+              CAN_CLASSIC_FRAME_DATA_BYTES, (char*)g_canfd_ch0_tx_frame.data, CAN_CLASSIC_FRAME_DATA_BYTES);
 }
 
 /*******************************************************************************************************************//**
@@ -162,10 +170,11 @@ static void can_data_check_operation(void)
     }
     else if(RESET_VALUE == strncmp((char*)&g_canfd_ch0_rx_frame.data[ZERO], (char*)&rx_data[ZERO], CAN_CLASSIC_FRAME_DATA_BYTES))
     {
+        APP_PRINT("[2] RX Classic ACK <- CH3: \"%.*s\" (%d bytes)\n",
+                  CAN_CLASSIC_FRAME_DATA_BYTES, (char*)g_canfd_ch0_rx_frame.data, g_canfd_ch0_rx_frame.data_length_code);
+
         /* Cleaning receive frame */
         memset(&g_canfd_ch0_rx_frame.data[ZERO], NULL_CHAR, CAN_FD_DATA_LENGTH_CODE);
-
-        APP_PRINT("[2] RX Classic ACK <- CH3 (%d bytes)\n", g_canfd_ch0_rx_frame.data_length_code);
 
         /* Updating FD frame parameters for channel 0*/
         g_canfd_ch0_tx_frame.id = CAN_ID;
@@ -182,7 +191,8 @@ static void can_data_check_operation(void)
         /* Transmission of data as over FD frame */
         can_write_operation(g_canfd_ch0_ctrl, g_canfd_ch0_tx_frame);
 
-        APP_PRINT("[3] TX CAN FD -> CH3 (%d bytes)\n", CAN_FD_DATA_LENGTH_CODE);
+        APP_PRINT("[3] TX CAN FD -> CH3: \"%.*s\" (%d bytes)\n",
+                  CAN_FD_DATA_LENGTH_CODE, (char*)g_canfd_ch0_tx_frame.data, CAN_FD_DATA_LENGTH_CODE);
 
     }
     else if(RESET_VALUE == strncmp((char*)&g_canfd_ch3_rx_frame.data[ZERO], (char*)&tx_fd_data[ZERO], CAN_FD_DATA_LENGTH_CODE)) // acknowledging for second transmission
@@ -210,12 +220,13 @@ static void can_data_check_operation(void)
     }
     else if(RESET_VALUE == strncmp((char*)&g_canfd_ch0_rx_frame.data[ZERO], (char*)&rx_fd_data[ZERO], CAN_FD_DATA_LENGTH_CODE)) // acknowledgement for second transmission
     {
+        APP_PRINT("[4] RX CAN FD ACK <- CH3: \"%.*s\" (%d bytes)\n",
+                  CAN_FD_DATA_LENGTH_CODE, (char*)g_canfd_ch0_rx_frame.data, g_canfd_ch0_rx_frame.data_length_code);
+        APP_PRINT("--- CAN cycle complete ---\n");
+        APP_PRINT("\nEnter message to send: ");
+
         /* Cleaning receive frame */
         memset(&g_canfd_ch0_rx_frame.data[ZERO], NULL_CHAR, CAN_FD_DATA_LENGTH_CODE);
-
-        APP_PRINT("[4] RX CAN FD ACK <- CH3 (%d bytes)\n", g_canfd_ch0_rx_frame.data_length_code);
-        APP_PRINT("--- CAN cycle complete ---\n");
-        APP_PRINT("\nPlease enter any key on Terminal Emulator to initiate CAN transmission.\n");
     }
     else /* Wrong MSG Received */
     {
