@@ -13,12 +13,21 @@
 #include <stdarg.h>
 #include <string.h>
 
+#include <stdbool.h>
+
 #define CONSOLE_BUF_SIZE  (256u)
 #define CONSOLE_TIMEOUT   (UINT32_MAX)
 #define RESET_VALUE       (0u)
 
+#define RX_RING_SIZE      (64u)
+
 /* Flag for user callback */
 static volatile uint8_t g_uart_event = RESET_VALUE;
+
+/* RX ring buffer */
+static volatile uint8_t g_rx_ring[RX_RING_SIZE];
+static volatile uint32_t g_rx_head = 0;
+static volatile uint32_t g_rx_tail = 0;
 
 /*******************************************************************************************************************//**
  * @brief       Initialize UART console.
@@ -71,6 +80,33 @@ void console_print(const char *fmt, ...)
 }
 
 /*******************************************************************************************************************//**
+ * @brief       Check if RX data is available.
+ * @retval      true    Data available
+ * @retval      false   No data
+ **********************************************************************************************************************/
+bool console_has_data(void)
+{
+    return (g_rx_head != g_rx_tail);
+}
+
+/*******************************************************************************************************************//**
+ * @brief       Read received data from RX ring buffer.
+ * @param[in]   buf    Buffer to store data
+ * @param[in]   len    Maximum bytes to read
+ * @retval      Number of bytes actually read
+ **********************************************************************************************************************/
+uint32_t console_read(uint8_t *buf, uint32_t len)
+{
+    uint32_t count = 0;
+    while ((count < len) && (g_rx_head != g_rx_tail))
+    {
+        buf[count++] = (uint8_t)g_rx_ring[g_rx_tail];
+        g_rx_tail = (g_rx_tail + 1u) % RX_RING_SIZE;
+    }
+    return count;
+}
+
+/*******************************************************************************************************************//**
  * @brief       Deinitialize UART console.
  **********************************************************************************************************************/
 void console_deinit(void)
@@ -86,5 +122,15 @@ void g_uart_callback(uart_callback_args_t *p_args)
     if (NULL != p_args)
     {
         g_uart_event = (uint8_t)p_args->event;
+
+        if (UART_EVENT_RX_CHAR == p_args->event)
+        {
+            uint32_t next = (g_rx_head + 1u) % RX_RING_SIZE;
+            if (next != g_rx_tail)
+            {
+                g_rx_ring[g_rx_head] = (uint8_t)p_args->data;
+                g_rx_head = next;
+            }
+        }
     }
 }
