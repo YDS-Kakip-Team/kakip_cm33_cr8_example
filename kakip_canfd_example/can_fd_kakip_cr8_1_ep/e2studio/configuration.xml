@@ -317,8 +317,8 @@
       <property id="module.driver.canfd.afl_array" value="p_canfd_ch0_afl"/>
     </module>
     <module id="module.driver.canfd_on_canfd.1026087837">
-      <property id="module.driver.canfd.name" value="g_canfd_ch1"/>
-      <property id="module.driver.canfd.channel" value="1"/>
+      <property id="module.driver.canfd.name" value="g_canfd_ch3"/>
+      <property id="module.driver.canfd.channel" value="3"/>
       <property id="module.driver.canfd.bitrate.automatic.clock_source_freq" value="0"/>
       <property id="module.driver.canfd.bitrate.automatic.nominal_rate" value="500000"/>
       <property id="module.driver.canfd.bitrate.automatic.data_rate" value="2000000"/>
@@ -333,12 +333,12 @@
       <property id="module.driver.canfd.manual.data.time_segment_2" value="8"/>
       <property id="module.driver.canfd.manual.data.sync_jump_width" value="1"/>
       <property id="module.driver.canfd.bitrate.manual.use_manual" value="module.driver.canfd.bitrate.manual.use_manual.enabled"/>
-      <property id="module.driver.canfd.p_callback" value="canfd_ch1_callback"/>
+      <property id="module.driver.canfd.p_callback" value="canfd_ch3_callback"/>
       <property id="module.driver.canfd.txmb.int" value="module.driver.canfd.txmb.int.0"/>
       <property id="module.driver.canfd.ch_err.int" value="module.driver.canfd.ch_err.int.err_warning,module.driver.canfd.ch_err.int.err_passive,module.driver.canfd.ch_err.int.bus_off_entry,module.driver.canfd.ch_err.int.bus_off_recovery,module.driver.canfd.ch_err.int.overload"/>
       <property id="module.driver.canfd.ipl" value="12"/>
       <property id="module.driver.canfd.txmb_merge_mode" value="module.driver.canfd.txmb_merge_mode.disable"/>
-      <property id="module.driver.canfd.afl_array" value="p_canfd_ch1_afl"/>
+      <property id="module.driver.canfd.afl_array" value="p_canfd_ch3_afl"/>
     </module>
     <module id="module.driver.uart_on_sci_b_uart.598375372">
       <property id="module.driver.uart.name" value="g_uart"/>
@@ -384,7 +384,7 @@
     </config>
     <config id="config.driver.canfd">
       <property id="config.driver.canfd.param_checking_enable" value="config.driver.canfd.param_checking_enable.bsp"/>
-      <property id="config.driver.canfd.global_err.cb_channel" value="config.driver.canfd.global_err.cb_channel.1"/>
+      <property id="config.driver.canfd.global_err.cb_channel" value="config.driver.canfd.global_err.cb_channel.3"/>
       <property id="config.driver.canfd.global_err.ipl" value="2"/>
       <property id="config.driver.canfd.rxfifo.ipl" value="12"/>
       <property id="config.driver.canfd.fd.protocol_exception" value="config.driver.canfd.fd.protocol_exception.iso"/>
@@ -653,9 +653,9 @@
       <property id="config.driver.canfd.commonfifo.17.interval_source" value="config.driver.canfd.commonfifo.17.interval_source.refclk"/>
       <property id="config.driver.canfd.commonfifo.17.refclk_resolution" value="config.driver.canfd.commonfifo.17.refclk_resolution.1"/>
       <property id="config.driver.canfd.afl.ch0_num" value="64"/>
-      <property id="config.driver.canfd.afl.ch1_num" value="64"/>
+      <property id="config.driver.canfd.afl.ch1_num" value="0"/>
       <property id="config.driver.canfd.afl.ch2_num" value="0"/>
-      <property id="config.driver.canfd.afl.ch3_num" value="0"/>
+      <property id="config.driver.canfd.afl.ch3_num" value="64"/>
       <property id="config.driver.canfd.afl.ch4_num" value="0"/>
       <property id="config.driver.canfd.afl.ch5_num" value="0"/>
     </config>
@@ -665,9 +665,9 @@
       <configSetting altId="canfd0.crx0.p81" configurationId="canfd0.crx0"/>
       <configSetting altId="canfd0.ctx0.p80" configurationId="canfd0.ctx0"/>
       <configSetting altId="canfd0.mode.custom.free" configurationId="canfd0.mode"/>
-      <configSetting altId="canfd1.crx1.p83" configurationId="canfd1.crx1"/>
-      <configSetting altId="canfd1.ctx1.p82" configurationId="canfd1.ctx1"/>
-      <configSetting altId="canfd1.mode.custom.free" configurationId="canfd1.mode"/>
+      <configSetting altId="canfd3.crx3.p87" configurationId="canfd3.crx3"/>
+      <configSetting altId="canfd3.ctx3.p86" configurationId="canfd3.ctx3"/>
+      <configSetting altId="canfd3.mode.custom.free" configurationId="canfd3.mode"/>
       <configSetting altId="p50.output.low" configurationId="p50"/>
       <configSetting altId="p50.gpio_mode.gpio_mode_out.low" configurationId="p50.gpio_mode"/>
       <configSetting altId="p51.output.low" configurationId="p51"/>
@@ -684,10 +684,10 @@
       <configSetting altId="p80.gpio_mode.gpio_mode_peripheral" configurationId="p80.gpio_mode"/>
       <configSetting altId="p81.canfd0.crx0" configurationId="p81"/>
       <configSetting altId="p81.gpio_mode.gpio_mode_peripheral" configurationId="p81.gpio_mode"/>
-      <configSetting altId="p82.canfd1.ctx1" configurationId="p82"/>
-      <configSetting altId="p82.gpio_mode.gpio_mode_peripheral" configurationId="p82.gpio_mode"/>
-      <configSetting altId="p83.canfd1.crx1" configurationId="p83"/>
-      <configSetting altId="p83.gpio_mode.gpio_mode_peripheral" configurationId="p83.gpio_mode"/>
+      <configSetting altId="p86.canfd3.ctx3" configurationId="p86"/>
+      <configSetting altId="p86.gpio_mode.gpio_mode_peripheral" configurationId="p86.gpio_mode"/>
+      <configSetting altId="p87.canfd3.crx3" configurationId="p87"/>
+      <configSetting altId="p87.gpio_mode.gpio_mode_peripheral" configurationId="p87.gpio_mode"/>
       <configSetting altId="riic8.mode.custom.free" configurationId="riic8.mode"/>
       <configSetting altId="rsci5.mode.custom.free" configurationId="rsci5.mode"/>
       <configSetting altId="rsci5.rxd5_miso5_scl5.p73" configurationId="rsci5.rxd5_miso5_scl5"/>
