@@ -688,6 +688,10 @@
       <configSetting altId="p86.gpio_mode.gpio_mode_peripheral" configurationId="p86.gpio_mode"/>
       <configSetting altId="p87.canfd3.crx3" configurationId="p87"/>
       <configSetting altId="p87.gpio_mode.gpio_mode_peripheral" configurationId="p87.gpio_mode"/>
+      <configSetting altId="pa2.output.high" configurationId="pa2"/>
+      <configSetting altId="pa2.gpio_mode.gpio_mode_out.high" configurationId="pa2.gpio_mode"/>
+      <configSetting altId="pa3.output.high" configurationId="pa3"/>
+      <configSetting altId="pa3.gpio_mode.gpio_mode_out.high" configurationId="pa3.gpio_mode"/>
       <configSetting altId="riic8.mode.custom.free" configurationId="riic8.mode"/>
       <configSetting altId="rsci5.mode.custom.free" configurationId="rsci5.mode"/>
       <configSetting altId="rsci5.rxd5_miso5_scl5.p73" configurationId="rsci5.rxd5_miso5_scl5"/>
