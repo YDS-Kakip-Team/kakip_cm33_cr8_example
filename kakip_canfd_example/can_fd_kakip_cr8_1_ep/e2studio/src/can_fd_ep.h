@@ -24,7 +24,7 @@
 #define NULL_CHAR                       ('\0')             //MACRO for null character
 #define WAIT_TIME                       (500U)             //Wait time value
 #define EP_INFO                        "\n This Example Project demonstrates CAN FD operations on Renesas RZ MCUs using 1 RZ/V board."\
-                                       "\nOn pressing any key on the RTT Viewer, data is transmitted from one channel to other."\
+                                       "\nOn pressing any key on the Terminal Emulator, data is transmitted from one channel to other."\
                                        "\nOn 1st transmission, Channel 0 transmits data to Channel 3. Channel 3 displays the received data."\
                                        "\nOn 2nd transmission, Channel 3 transmits updated data to Channel 0 as ACK. Channel 0 displays the received data,"\
                                        "\nthen Channel 0 changes CAN frame to CANFD frame and updates data."\
