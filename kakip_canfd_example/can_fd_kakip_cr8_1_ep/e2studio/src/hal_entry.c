@@ -16,17 +16,6 @@
 
 /* Timeout value */
 volatile uint32_t g_time_out = WAIT_TIME;
-/** Structure with LED information for board. */
-
-const bsp_leds_t g_leds =
-{
-    .led_count = (uint16_t) ((sizeof(g_prv_leds)) / (sizeof(g_prv_leds[0]))),
-    .p_leds    = &g_prv_leds[0]
-};
-
-/* User defined function */
-extern void led_update(led_state_t led_state);
-static void led_pin_initialisation(void);
 
 /* Flags to be set in Callback function */
 bool b_canfd_ch0_tx_complete = false;
@@ -123,9 +112,6 @@ void hal_entry (void)
     unsigned char rtt_input_buf[BUFFER_SIZE_DOWN] = {NULL_CHAR};
 
 
-    /* Initialization of LED Pins*/
-    led_pin_initialisation();
-
     /* version get API for FLEX pack information */
     R_FSP_VersionGet(&version);
 
@@ -141,7 +127,6 @@ void hal_entry (void)
     if(FSP_SUCCESS != err)
     {
         APP_ERR_PRINT("\nCANFD Open API failed");
-        led_update(error);
         APP_ERR_TRAP(err);
     }
 
@@ -150,7 +135,6 @@ void hal_entry (void)
     if(FSP_SUCCESS != err)
     {
         APP_ERR_PRINT("\nCANFD Open API failed");
-        led_update(error);
         APP_ERR_TRAP(err);
     }
 
@@ -173,41 +157,12 @@ void hal_entry (void)
         {
             b_canfd_err_status = false;
             APP_ERR_PRINT("\nCAN ERR status");
-            led_update(error);
             APP_ERR_TRAP(true);
         }
 
 
         /* Re initializing time out value */
         g_time_out = WAIT_TIME;
-    }
-}
-
-/*******************************************************************************************************************//**
- * @brief       This function is to initialize state of LED pins.
- * @param[in]   None
- * @return      None
- **********************************************************************************************************************/
-static void led_pin_initialisation(void)
-{
-    /* Set the LED pin state low */
-    R_IOPORT_PinWrite(&g_ioport_ctrl, (bsp_io_port_pin_t) g_leds.p_leds[LED_LED1], BSP_IO_LEVEL_LOW);
-    R_IOPORT_PinWrite(&g_ioport_ctrl, (bsp_io_port_pin_t) g_leds.p_leds[LED_LED2], BSP_IO_LEVEL_LOW);
-    R_IOPORT_PinWrite(&g_ioport_ctrl, (bsp_io_port_pin_t) g_leds.p_leds[LED_LED3], BSP_IO_LEVEL_LOW);
-    R_IOPORT_PinWrite(&g_ioport_ctrl, (bsp_io_port_pin_t) g_leds.p_leds[LED_LED4], BSP_IO_LEVEL_LOW);
-
-    for(int i = 0; i < 4; i++)
-    {
-        R_IOPORT_PinWrite(&g_ioport_ctrl, (bsp_io_port_pin_t) g_leds.p_leds[i], BSP_IO_LEVEL_HIGH);
-        /* Delay */
-        R_BSP_SoftwareDelay(200, BSP_DELAY_UNITS_MILLISECONDS);
-    }
-
-    for(int j = 1; j >= 0; j--)
-    {
-        R_IOPORT_PinWrite(&g_ioport_ctrl, (bsp_io_port_pin_t) g_leds.p_leds[j], BSP_IO_LEVEL_LOW);
-        /* Delay */
-        R_BSP_SoftwareDelay(200, BSP_DELAY_UNITS_MILLISECONDS);
     }
 }
 

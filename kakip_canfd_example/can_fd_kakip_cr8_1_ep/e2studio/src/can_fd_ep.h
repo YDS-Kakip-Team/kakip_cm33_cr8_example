@@ -32,36 +32,9 @@
                                        "\nthen Channel 3 changes CAN frame to CANFD frame and updates data to transmits back to Channel 0 as ACK."\
                                        "\nOn 4th transmission, Channel 3 transmits updated data to Channel 0 as ACK. Channel 0 displays the received data.\n"
 
-/* Enum to select LD that is to be made high */
-typedef enum
-{
-   error = 1,
-   successful = 2,
-   transmitting = 3,
-} led_state_t;
-
 void canfd_operation(void);
 void can_read_operation(void);
 void canfd_deinit(void);
-
-/** Array of Pmod LED on bottom row of Pmod0. */
-static const uint16_t g_prv_leds[] =
-{
-    (uint16_t) BSP_IO_PORT_05_PIN_02,  ///< LED1
-    (uint16_t) BSP_IO_PORT_05_PIN_00,  ///< LED2
-    (uint16_t) BSP_IO_PORT_05_PIN_01,  ///< LED3
-    (uint16_t) BSP_IO_PORT_05_PIN_03,  ///< LED4
-};
-
-/** Available user-controllable LEDs on this board. These enums can be can be used to index into the array of LED pins
- * found in the bsp_leds_t structure. */
-typedef enum e_led
-{
-    LED_LED1,                      ///< LED1
-    LED_LED2,                      ///< LED2
-    LED_LED3,                      ///< LED3
-    LED_LED4,                      ///< LED4
-} led_t;
 
 
 #endif /* CAN_FD_EP_H_ */
