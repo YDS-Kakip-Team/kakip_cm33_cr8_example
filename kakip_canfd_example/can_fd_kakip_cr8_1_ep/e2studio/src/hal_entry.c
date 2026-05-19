@@ -127,6 +127,10 @@ void hal_entry (void)
     APP_PRINT(EP_INFO);
     R_BSP_SoftwareDelay(200, BSP_DELAY_UNITS_MILLISECONDS);
 
+    /* Enable CAN transceivers by driving STB pins LOW (active LOW) */
+    R_IOPORT_PinWrite(&g_ioport_ctrl, BSP_IO_PORT_10_PIN_02, BSP_IO_LEVEL_LOW);  /* CAN0 STB */
+    R_IOPORT_PinWrite(&g_ioport_ctrl, BSP_IO_PORT_10_PIN_03, BSP_IO_LEVEL_LOW);  /* CAN3 STB */
+
     /* Initialize canfd module */
     err = R_CANFD_Open(&g_canfd_ch0_ctrl, &g_canfd_ch0_cfg);
     /* Error trap */
